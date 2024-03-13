@@ -292,5 +292,5 @@ MAP : <br/>
 Salah satu elemen penting dalam bahasa pemrograman adalah tipe data.Selain itu tipe data juga digunakan untuk memudahkan dalam pengoperasian dan juga penggunaan dalam variabel. Dengan mengetahui beberapa macam tipe data dan kegunaannya, dapat memudahkan para programmer atau engineer dalam mengeksekusi program.
 
 ## Referensi
-[1] Frieyadie, Sopian Dalis dan Pradita Cynthia Sari, Modul Praktikum Pemrograman C++ Menggunakan Borland C++. Jakarta:BSI,2014.
+[1] Frieyadie, Sopian Dalis dan Pradita Cynthia Sari, Modul Praktikum Pemrograman C++ Menggunakan Borland C++. Jakarta:BSI,2014.<br/>
 [2] Sindar, Anita, STRUKTUR DATA DAN ALGORITMA DENGAN C++. 1st Edisi. Serang:CV.AA.RIZKY,2018.
