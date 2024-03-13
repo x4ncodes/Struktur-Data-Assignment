@@ -129,7 +129,7 @@ int main() {
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
 #### Full code Screenshot:
-![FUll Screenshot Unguided1](Full Screenshot Unguided1.png)
+![FUll Screenshot Unguided1](Full_Screenshot_Unguided1.png)
 
 
 ## Kesimpulan
