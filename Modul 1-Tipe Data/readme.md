@@ -161,7 +161,7 @@ int main(){
 
 Kode di atas memunculkan sebuat output luas dan keliling lingkaran. terdapat 2 fungsi, yang pertama fungsi untuk menghitung luas lingkaran dengan menggunakan variabel jari (tipe data integer) kemudian mengembalikan nilai dengan rumus luas lingkaran, kemudian fungsi kedua untuk menghitung keliling lingkaran sistem kerjanya sama dengan fungsi pertama cuma berbeda dibagian pengembalian nilai (rumus).
 
-Kesimpulan tipe data primitif
+Kesimpulan tipe data primitif <br/>
 Tipe data primitif merupakan blok pembangun paling sederhana dari sebuah program, dalam bahasa C++ terdapat beberapa tipe data primitif seperti boolean, char, int, float, double, string dsb.
 
 #### Full code Screenshot:
@@ -279,7 +279,7 @@ B. Perbedaan Array dan MAP <br/>
 Array : <br/>
 - Elemen dalam array disimpan secara berurutan di dalam memori, dimulai dari indeks 0. <br/>
 - Ukuran array harus ditentukan saat deklarasi dan tidak dapat diubah (kurang fleksibel) setelahnya.<br/>
-- Semua elemen dalam array harus memiliki tipe data yang sama.<br/>
+- Semua elemen dalam array harus memiliki tipe data yang sama.<br/><br/>
 MAP : <br/>
 - Elemen dalam map tidak disimpan secara berurutan. <br/>
 - Map dapat menyimpan value dengan berbagai tipe data yang berbeda. <br/>
