@@ -3,8 +3,22 @@
 
 ## Dasar Teori
 
-Berikan penjelasan teori terkait materi modul ini dengan bahasa anda sendiri serta susunan yang terstruktur per topiknya.
+Tipe data merupakan bagian program yang paling penting karena tipe data mempengaruhi setiap instruksi yang akan dilaksanakan oleh computer. Beberapa tipe data dalam C++ : 
+1. Tipe Data Primitif <br/>
+Tipe Data Primitif adalah blok pembangun paling sederhana dari sebuah program. Contoh tipe data primitif : <br/>
+- Int (bilangan bulat)<br/>
+- Float (bilangan desimal)<br/>
+- Char (huruf atau simbol)<br/>
+- Boolean (True or False)<br/>
 
+2. Tipe Data Abstrak (Abstrak Data Type)
+Tipe data abstrak adalah sebuah konsep dalam ilmu komputer yang menjelaskan sekelompok operasi yang dapat dilakukan pada suatu jenis data tanpa menjelaskan secara detail bagaimana operasi tersebut diimplementasikan. 
+
+3. Tipe Data Koleksi
+Tipe data koleksi adalah sebuah jenis data yang dapat menyimpan sekelompok data dengan tipe data yang sama atau berbeda. Tipe data ini sangat berguna untuk mengelompokkan data. Contoh Tipe Data Koleksi : <br/>
+- Array : Tipe terstruktur yang terdiri dari sejumlah komponen-komponen yang mempunyai tipe sama. <br/>
+- MAP : Struktur data yang menghubungkan key (kunci) dengan value (nilai). Key bersifat unik dan tidak boleh duplikat, sedangkan value bisa apa saja.<br/>
+- Vector : Mirip seperti array yang memiliki kemampuan untuk menyimpan data dalam bentuk elemen-elemen yang alokasi memorinya dilakukan otomatis dan bersebelahan <br/>
 ## Guided 
 
 ### 1. [Tipe Data Primitif]
@@ -208,18 +222,74 @@ Struktur digunakan untuk mengelompokan sejumlah data yang mempunyaitipe data yan
 
 2. Fungsi Dari Class <br/>
 Class merupakan gambaran atau abstraksi karakter dan sifat dari suatu objek. Class juga dapat mendefinisikan ciri dan perilaku objek tersebut. <br/>
+
 Item pada Class : <br/>
 A. Public Class <br/>
-Public (public) menyatakan bahwa deklarasi variabel atau item-item yang ada didalam kelas dapat diakses dari luar kelas.
-B. Public Class <br/>
+Public (public) menyatakan bahwa deklarasi variabel atau item-item yang ada didalam kelas dapat diakses dari luar kelas. <br/>
+B. Private Class <br/>
 Private digunakan pada kelas untuk memproteksi anggota-anggota tertentunya agar tidak dapat diakses dari luar kelas secara langsung.<br/>
 
 ![Deklarasi Class](Deklarasi_Class_C++.png)
 #### Full code Screenshot:
 ![Full Screenshot Unguided2](Full_Screenshot_Unguided2.png)
 
+### 3. [Buat dan jelaskan program menggunakan fungsi map dan jelaskan perbedaan dari array dengan map.]
+
+```C++
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+// Code Axan find telepon numbers.
+
+int main (){
+    map<string, int> contacts;
+
+    contacts["Xansan"] = 1211129;
+    contacts["Axan"] = 192380;
+    contacts["Lizan"] = 1938043;
+    contacts["Abel"] = 394209;
+
+    cout << "Daftar Nomor Telepon : " << endl;
+    for(const auto& contact : contacts){
+        cout << contact.first << ": " << contact.second << endl;
+    }
+
+    cout << endl;
+    string searchNama = "Axan";
+    if (contacts.find(searchNama) != contacts.end()){
+        cout << "Nomor Telepon " << searchNama << ": " << contacts[searchNama] << endl;
+    } else {
+        cout << "Kontak tidak ditemukan untuk " << searchNama << endl;
+    }
+
+    return 0;
+}
+```
+#### Output:
+![Output JPG](Output_Unguided3.png)
+
+Kode di atas menggunakan map untuk menyimpan data string (untuk menyimpan nama) dan integer (untuk menyimpan nomor telepon) dari variable contacts. Menggunakan iterasi for untuk mencetak nama dan nomor telepon. Menggunakan searching (find) berdasarkan nama, jika nama kontak sesuai maka akan memunculkan nomor telepon [nama] : nomor telepon sesuai nama. <br/>
+
+A. MAP <br/>
+Map adalah struktur data yang menghubungkan key (kunci) dengan value (nilai). Key bersifat unik dan tidak boleh duplikat, sedangkan value bisa apa saja.<br/>
+
+B. Perbedaan Array dan MAP <br/>
+Array : <br/>
+- Elemen dalam array disimpan secara berurutan di dalam memori, dimulai dari indeks 0. <br/>
+- Ukuran array harus ditentukan saat deklarasi dan tidak dapat diubah (kurang fleksibel) setelahnya.<br/>
+- Semua elemen dalam array harus memiliki tipe data yang sama.<br/>
+MAP : <br/>
+- Elemen dalam map tidak disimpan secara berurutan. <br/>
+- Map dapat menyimpan value dengan berbagai tipe data yang berbeda. <br/>
+- Map dapat secara otomatis bertambah atau berkurang ukurannya saat elemen ditambahkan atau dihapus. <br/>
+
+#### Full code Screenshot:
+![Full Screenshot Unguided3](Full_Screenshot_Unguided3.png)
+
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
+Salah satu elemen penting dalam bahasa pemrograman adalah tipe data.Selain itu tipe data juga digunakan untuk memudahkan dalam pengoperasian dan juga penggunaan dalam variabel. Dengan mengetahui beberapa macam tipe data dan kegunaannya, dapat memudahkan para programmer atau engineer dalam mengeksekusi program.
 
 ## Referensi
 [1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
