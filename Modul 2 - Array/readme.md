@@ -2,7 +2,17 @@
 <p align="center">Axandio Biyanatul Lizan - 2311102179</p>
 
 ## Dasar Teori
-
+Array adalah struktur data yang dapat menyimpan sejumlah nilai bertipe sama, sebagai contoh kita dapat menciptakan sebuah array yang dapat menampung 100 nilai bertipe int dan array kedua yang dapat menampung 25 nilai bertipe float. <br/>
+1. Array 1 dimensi
+Array Satu dimensi tidak lain adalah kumpulan elemen-elemen identik yang tersusun dalam satu baris. Elemen-elemen tersebut memiliki tipe data yang sama, tetapi isi dari elemen tersebut dapat berbeda. Petunjuk indeks hanya satu. <br/>
+Bentuk Umum Array 1 Dimensi : <br/>
+Tipe Data Nama_Variabel [Ukuran]<br/>
+2. Array 2 dimensi : Matriks
+Matriks adalah sekumpulan informasi yang setiap individu elemennya diacu dengan menggunakan dua buah indeks (yang biasanya dikonotasikan dengan baris dan kolom).<br/>
+Bentuk Umum Array 2 dimensi : <br/>
+Tipe Data Nama_Array[index-1] [index-2]
+3. Array Multidimensi
+Array multidimensi digunakan untuk mewakili array dengan dimensi lebih dari dua atau lebih, meskipun mereka memiliki kesamaan dengan array satu dimensi dan dua dimensi. Array yang memiliki lebih dari dua indeks; ini dapat berupa array tiga dimensi, empat dimensi, dll.
 
 ## Guided 
 
@@ -295,4 +305,5 @@ Pada dasarnya, array adalah struktur data yang digunakan untuk menyimpan sejumla
 
 ## Referensi
 [1] Frieyadie, Sopian Dalis dan Pradita Cynthia Sari, Modul Praktikum Pemrograman C++ Menggunakan Borland C++. Jakarta:BSI,2014.<br/>
-[2] Sindar, Anita, STRUKTUR DATA DAN ALGORITMA DENGAN C++. 1st Edisi. Serang:CV.AA.RIZKY,2018.
+[2] Sindar, Anita, STRUKTUR DATA DAN ALGORITMA DENGAN C++. 1st Edisi. Serang:CV.AA.RIZKY,2018.<br/>
+[3] Suprapto, Kadarisman Tejo Yuwono, Totok Sukardiyono, dan Adi Dewanto, BAHASA PEMROGRAMAN untuk Sekolah Menengah Kejuruan. Departemen Pendidikan Nasional, 2008.
