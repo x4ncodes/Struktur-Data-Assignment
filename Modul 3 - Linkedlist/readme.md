@@ -276,7 +276,7 @@ int main() {
     return 0;
 }
 ```
-Kode C++ diatas merepresentasikan cara kerja dari single linked list. Terdapat beberapa prosedur yang menjelaskan mengenai Insert (menambahkan), Hapus, Ubah data pada linked list, tampil, init, function hitungList. Sebagai gambaran saya jelaskan cara kerja 2 prosedur dan 1 fungsi yaitu function hitung list, insert depan, dan juga hapus depan. <br/>
+Kode C++ diatas merepresentasikan cara kerja dari single linked list. Terdapat beberapa prosedur yang menjelaskan mengenai Insert (menambahkan), Hapus, Ubah data pada linked list, tampil, init, function hitungList. Sebagai gambaran saya jelaskan cara kerja 2 prosedur dan 1 fungsi yaitu function hitung list, insert depan, dan juga hapus depan:  <br/>
 a. Fungsi HitungList <br/>
 Pertama, sebuah pointer hitung diinisialisasi dengan head, yang merupakan pointer ke node pertama dari linked list. Kemudian, variabel jumlah diinisialisasi dengan nilai 0 untuk menyimpan jumlah elemen. Kemudian program melakukan looping while dengan kondisi hitung != NULL dan pada jumlah akan bertambah 1 dan pointer hitung akan maju ke node berikutnya. Looping ini akan berhenti jika pointer hitung mencapai NULL. <br/>
 b. Prosedur insertDepan <br/>
@@ -285,37 +285,160 @@ c. Prosedur hapusDepan <br/>
 Fungsi pertama kali adalah mengecek apakah linked list kosong atau tidak, jika linked list kosong maka akan memunculkan pesan "List Kosong!" dan fungsi if berhenti. Jika tidak, pointer 'hapus' akan menginisialisasi head, kemudian head dipindahkan ke node berikutnya. Selanjutnya node yang telah dihapus 'hapus' dialokasikan dari memori 'delete'.<br/>
 
 
-### 2. [Program Mencari Nilai Maksimal pada Array]
+### 2. [Latihan Double Linked List]
 ```C++
 #include <iostream>
+
 using namespace std;
 
-int main(){
-    int maks, a, i = 1, lokasi;
-    cout << "Masukan Panjang Array: ";
-    cin >> a;
-    int array[a];
-    cout << "Masukkan " << a << " angka\n";
+class Node {
+public:
+    int data;
+    Node* prev;
+    Node* next;
 
-    for (i = 0; i < a; i++){
-        cout << "Array ke-" << (i) << ": ";
-        cin >> array[i];
+    Node(int data) {
+        this->data = data;
+        prev = nullptr;
+        next = nullptr;
     }
-    maks = array[0];
+};
 
-    for (i = 0; i < a; i++){
-        if (array[i] > maks){
-            maks = array[i];
-            lokasi = i;
+class DoublyLinkedList {
+public:
+    Node* head;
+    Node* tail;
+
+    DoublyLinkedList() {
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void push(int data) {
+        Node* newNode = new Node(data);
+        if (head == nullptr) {
+            head = tail = newNode;
+        } else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
         }
     }
 
-    cout << "Nilai maksimum adalah " << maks << " berada di array ke " << lokasi << endl;
+    bool pop() {
+        if (head == nullptr) {
+            return false;
+        }
+
+        Node* temp = head;
+        head = head->next;
+        if (head != nullptr) {
+            head->prev = nullptr;
+        } else {
+            tail = nullptr;
+        }
+        delete temp;
+        return true;
+    }
+
+    bool update(int oldData, int newData) {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->data == oldData) {
+                current->data = newData;
+                return true;
+            }
+            current = current->next;
+        }
+        return false;
+    }
+
+    void deleteAll() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void display() {
+        Node* current = head;
+        while (current != nullptr) {
+            cout << current->data << " ";
+            current = current->next;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    DoublyLinkedList list;
+
+    while (true) {
+        cout << "1. Add data" << endl;
+        cout << "2. Delete data" << endl;
+        cout << "3. Update data" << endl;
+        cout << "4. Clear data" << endl;
+        cout << "5. Display data" << endl;
+        cout << "6. Exit" << endl;
+
+        int choice;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int data;
+                cout << "Enter data to add: ";
+                cin >> data;
+                list.push(data);
+                break;
+            }
+            case 2: {
+                list.pop();
+                break;
+            }
+            case 3: {
+                int oldData, newData;
+                cout << "Enter old data: ";
+                cin >> oldData;
+                cout << "Enter new data: ";
+                cin >> newData;
+                bool updated = list.update(oldData, newData);
+                if (!updated) {
+                    cout << "Data not found" << endl;
+                }
+                break;
+            }
+            case 4: {
+                list.deleteAll();
+                break;
+            }
+            case 5: {
+                list.display();
+                break;
+            }
+            case 6: {
+                return 0;
+            }
+            default: {
+                cout << "Invalid choice" << endl;
+                break;
+            }
+        }
+    }
 
     return 0;
 }
 ```
-Kode diatas mendeklarasikan 4 variable dengan tipe data integer, kemudian menggunakan loop for untuk menemukan nilai maksimum dalam array. Nilai maksimum dan lokasinya kemudian dicetak. jika nilai data array lebih besar dri maks, maka akan memperbarui nilai array dengan nilai maks.
+Pertama terdapat class 'node' yang digunakan untuk merepresentasikan sebuah node DoublyLinkedList. data pada class node digunakan untuk menyimpan data dari node, prev bertipe pointer Node* digunakan untuk menunjukkan ke node sebelumnya pada linkedlist. sedangkan next bertipe pointer Node* digunakan untuk menunjukkan ke node selanjutnya pada linked List. <br/>
+
+Class DoublyLinkedList() diinisialisasi dengan mengatur head dan tail ke nullptr, menandakan bahwa linked list awalnya kosong. Procedure push(int data) digunakan untuk menambahkan node baru di awal linked list. Jika linked list kosong, head dan tail diatur ke node baru tersebut. Jika tidak, node baru tersebut dihubungkan ke head dan head diperbarui. function bool pop() menghapus node dari awal linked list. Jika linked list kosong, metode ini mengembalikan false. Jika tidak, node pertama dihapus, head diperbarui, dan pointer prev dari node baru head diatur ke nullptr. Function bool updateupdate(int oldData, int newData) memperbarui nilai data dari node dengan nilai oldData menjadi newData. Jika node dengan nilai oldData ditemukan dan diperbarui, metode mengembalikan true. Jika tidak ditemukan, metode mengembalikan false. Procedure deleteAll() menghapus semua node dari linked list dan membebaskan memori yang dialokasikan untuk setiap node. Setelah itu, head dan tail diatur kembali ke nullptr. Procedure display() digunakan untuk menampilkan semua nilai data dalam linked list, mulai dari head sampai tail. <br/>
+
+pada Int main terdapat switch case untuk menampilkan menu (add, delete, update, display, clear data) dan juga terdapat looping/perulangan while (true) sehingga program akan berjalan terus menerus kecuali user exit dari program. <br/>
 
 ## Unguided 
 
