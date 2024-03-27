@@ -442,58 +442,176 @@ pada Int main terdapat switch case untuk menampilkan menu (add, delete, update, 
 
 ## Unguided 
 
-### 1. [Buatlah program menu Single Linked List Non-Circular untuk menyimpan Nama dan usia mahasiswa, dengan menggunakan inputan dari user. Lakukan operasi berikut:<br/> a. Masukkan data sesuai urutan berikut. (Gunakan insert depan, belakang atau tengah). Data Pertama yang dimasukkan adalah nama dan usia anda. <br/> b. Hapus data Akechi <br/> c. Tambahkan data berikut diantara John dan Jane : Futaba 18 <br/> d. Tambahkan data berikut diawal : Igor 20 <br/> e. Ubah data Michael menjadi : Reyn 18 <br/> f. Tampilkan seluruh data <br/> Tampilan poin A : <br/> ]
-![Soal JPG](Soal_Unguided1.png)
+### 1. Buatlah program menu Single Linked List Non-Circular untuk menyimpan Nama dan usia mahasiswa, dengan menggunakan inputan dari user. Lakukan operasi berikut:<br/> a. Masukkan data sesuai urutan berikut. (Gunakan insert depan, belakang atau tengah). Data Pertama yang dimasukkan adalah nama dan usia anda. <br/> b. Hapus data Akechi <br/> c. Tambahkan data berikut diantara John dan Jane : Futaba 18 <br/> d. Tambahkan data berikut diawal : Igor 20 <br/> e. Ubah data Michael menjadi : Reyn 18 <br/> f. Tampilkan seluruh data <br/> Tampilan poin A : <br/> 
+![Soal JPG](Data_nama.png)
 ```C++
-#include <iostream>
+/*
+By Axandio Biyanatul Lizan - 2311102179
+*/
 
+#include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
-int main(){
-    const int max_size = 10;
-    int data [max_size];
+struct Node {
+    string nama;
+    int usia;
+    Node* next;
+};
 
-    int jumlahElemen;
-    cout << "Masukan jumlah elemen array(maksimal 10): ";
-    cin >> jumlahElemen;
+class LinkedList {
+public:
+    Node* head;
 
-    if (jumlahElemen > max_size){
-        cout << "Error: Jumlah elemen diluar kapasitas (maks 10)" << endl;
-        return 1;
+    LinkedList() {
+        head = nullptr;
     }
 
-    cout << "Masukan data array (dipisahkan dengan space/spasi): ";
-    for (int i = 0; i < jumlahElemen; i++){
-        cin >> data[i];
+    void insertDepan(string nama, int usia) {
+        Node* newNode = new Node;
+        newNode->nama = nama;
+        newNode->usia = usia;
+        newNode->next = head;
+        head = newNode;
     }
 
-    cout << "Data array : ";
-    for (int i = 0; i < jumlahElemen; i++){
-        cout << data[i] << " ";
+    void insertBelakang(string nama, int usia) {
+        Node* newNode = new Node;
+        newNode->nama = nama;
+        newNode->usia = usia;
+        newNode->next = nullptr;
+        if (head == nullptr) {
+            head = newNode;
+            return;
+        }
+        Node* current = head;
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        current->next = newNode;
     }
-    cout << endl;
 
-    cout << "Nomor Genap : ";
-    for (int i = 0; i < jumlahElemen; i++){
-        if (data[i]%2 == 0){
-            cout << data[i] << " ";
+    void insertTengah(string nama, int usia, string namaSebelum) {
+        Node* newNode = new Node;
+        newNode->nama = nama;
+        newNode->usia = usia;
+        Node* current = head;
+        while (current != nullptr && current->nama != namaSebelum) {
+            current = current->next;
+        }
+        if (current == nullptr) {
+            cout << "Data " << namaSebelum << " tidak ditemukan." << endl;
+            return;
+        }
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+
+    void hapus(string nama) {
+        if (head == nullptr) {
+            cout << "List kosong!" << endl;
+            return;
+        }
+        if (head->nama == nama) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+        Node* current = head;
+        while (current->next != nullptr && current->next->nama != nama) {
+            current = current->next;
+        }
+        if (current->next == nullptr) {
+            cout << "Data " << nama << " tidak ditemukan." << endl;
+            return;
+        }
+        Node* temp = current->next;
+        current->next = current->next->next;
+        delete temp;
+    }
+
+    void update(string oldNama, string newNama) {
+        Node* current = head;
+        while (current != nullptr) {
+            if (current->nama == oldNama) {
+                current->nama = newNama;
+                return;
+            }
+            current = current->next;
+        }
+        cout << "Data " << oldNama << " tidak ditemukan." << endl;
+    }
+
+    bool isEmpty() {
+        return head == nullptr; // Check if head pointer is null (empty list)
+    }
+
+    void display() {
+        Node* bantu = head;
+
+        cout << left << setw(15) << "-Nama-" << right << setw(4) << "-Usia-" << endl; // Supaya rapi
+
+        if (!isEmpty()) { // Use isEmpty function
+            while (bantu != NULL) {
+            cout << left << setw(15) << bantu->nama << right << setw(4) << bantu->usia << endl; // Supaya lurus di output
+            bantu = bantu->next;
+            }
+            cout << endl;
+        } else {
+            cout << "ITS EMPTY!" << endl;
         }
     }
-    cout << endl;
 
-    cout << "Nomor Ganjil : ";
-    for (int i = 0; i < jumlahElemen; i++){
-        if (data[i]%2 == 1){
-            cout << data[i] << " ";
-        }
-    }
-    cout << endl;
+};
+
+int main() {
+    LinkedList list;
+
+    // a. Insert data
+    cout << "\n=-=-=-=-= Linked List Axan =-=-=-=-=-=" << endl;
+    list.insertDepan("Karin", 19);
+    list.insertDepan("Hoshino", 18);
+    list.insertDepan("Akechi", 20);
+    list.insertDepan("Yusuke", 19);
+    list.insertDepan("Michael", 18);
+    list.insertDepan("Jane", 20);
+    list.insertDepan("John", 19);
+    list.insertDepan("Axan", 19);
+    list.display();
+
+    // b. Hapus data Akechi
+    cout << "=-=-=-=-= Hapus Data Akechi =-=-=-=-=" << endl;
+    list.hapus("Akechi");
+    list.display();
+
+    // c. Tambahkan data Futaba 18 di antara John dan Jane
+    cout << "=-=-=-=-= Tambah data Futaba 18 diantara John dan Jane =-=-=-=-=" << endl;
+    list.insertTengah("Futaba", 18, "John");
+    list.display();
+
+    // d. Tambahkan data Igor 20 di awal
+    cout << "=-=-=-=-= Tambahkan data Igor 20 di Awal =-=-=-=-=" << endl;
+    list.insertDepan("Igor", 20);
+    list.display();
+
+    // e. Ubah data Michael menjadi Reyn 18
+    cout << "=-=-=-=-= Ubah Data Michael Menjadi Reyn 18 =-=-=-=-=" << endl;
+    list.update("Michael", "Reyn");
+    list.display();
+
+    // f. Tampilkan seluruh data (Hasil Akhir)
+    cout << "=-=-=-=-= Hasil Akhir =-=-=-=-=-=" << endl;
+    list.display();
 
     return 0;
 }
+
 ```
 #### Output:
 ![Output JPG](Output_Unguided1.png)
+![Output JPG](Output_Unguided1_2.png)
 
 Kode diatas menggunakan maximal panjang array 10, jika lebih dari itu maka akan memuncul kan error yaitu "Error : jumlah elemen diluar kapasitas(maks 10)". Kemudian memasukan data array sesuai panjang array (bisa kurang dari panjang array). kemudian program akan mencetak data array menggunakan perulangan for, untuk mencari nilai genap program menggunakan permisalakn data pada i dibagi 2 nilainya 0 maka nilai tersebut adalah nomor genap, begitupun juga dengan ganjil data i dibagi dengan 2 menghasilkan sisa bagi 1 itu adalah nomor ganjil. Terakhir program maksimal panjang array, data array, nomor genap, dan nomor ganjil.
 
