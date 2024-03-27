@@ -927,7 +927,7 @@ int main() {
 #### Output
 ![Output PNG](Output1_Unguided2.png)
 ![Output PNG](Output2_Unguided2.png)
-![Output PNG](Output3_Unguided2.png)
+![Output PNG](Ouput3_Unguided2.png)
 
 Kode di atas diawali dengan inisialisasi struct node dengan 2 variabel string namaProduk, int harga, pointer Node prev & next. Kemudian ada class DoubleLinkedList yang merepresentasikan sebuah doubly linked list (daftar berantai ganda) untuk menyimpan informasi tentang produk dengan nama dan harga. Detail penjelasan : <br/>
 - DoubleLinkedList memiliki dua pointer head dan tail untuk mengidentifikasi awal dan akhir dari linked list. Konstruktor kelas ini menginisialisasi kedua pointer tersebut menjadi nullptr. <br/>
