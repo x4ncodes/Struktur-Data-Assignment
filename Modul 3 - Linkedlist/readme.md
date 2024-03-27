@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul Linkedlist</h1>
+# <h1 align="center">Laporan Praktikum Modul Linked List</h1>
 <p align="center">Axandio Biyanatul Lizan - 2311102179</p>
 
 ## Dasar Teori
@@ -442,7 +442,7 @@ pada Int main terdapat switch case untuk menampilkan menu (add, delete, update, 
 
 ## Unguided 
 
-### 1. [Buatlah program untuk menampilkan Output seperti berikut dengan data yang diinputkan oleh user!]
+### 1. [Buatlah program menu Single Linked List Non-Circular untuk menyimpan Nama dan usia mahasiswa, dengan menggunakan inputan dari user. Lakukan operasi berikut:<br/> a. Masukkan data sesuai urutan berikut. (Gunakan insert depan, belakang atau tengah). Data Pertama yang dimasukkan adalah nama dan usia anda. <br/> b. Hapus data Akechi <br/> c. Tambahkan data berikut diantara John dan Jane : Futaba 18 <br/> d. Tambahkan data berikut diawal : Igor 20 <br/> e. Ubah data Michael menjadi : Reyn 18 <br/> f. Tampilkan seluruh data <br/> Tampilan poin A : <br/> ]
 ![Soal JPG](Soal_Unguided1.png)
 ```C++
 #include <iostream>
