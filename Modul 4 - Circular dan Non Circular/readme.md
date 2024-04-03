@@ -917,17 +917,18 @@ int main() {
 }
 
 ```
-#### 1. Buatlah menu untuk menambahkan, mengubah, menghapus, dan melihat Nama dan NIM mahasiswa.
-## Output Unguided 1:
+## 1. Buatlah menu untuk menambahkan, mengubah, menghapus, dan melihat Nama dan NIM mahasiswa.
+#### Output Unguided 1:
 ![Screenshot 1](No1_1.png)
 ![Screenshot 2](No1_2.png)
 ![Screenshot 3](No1_3.png)
 ![Screenshot 4](No1_4.png)
 ![Screenshot 5](No1_5.png)
 
-#### 2. Setelah membuat menu tersebut, masukkan data sesuai urutan berikut, lalu tampilkan data yang telah dimasukkan. (Gunakan insert depan, belakang atau tengah)
+## 2. Setelah membuat menu tersebut, masukkan data sesuai urutan berikut, lalu tampilkan data yang telah dimasukkan. (Gunakan insert depan, belakang atau tengah)
 ![Unguided2](Unguided2.png)
-## Output Unguided 2:
+#### Output Unguided 2:
+
 
 
 Kode diatas mendeklarasikan struct node dengan 3 tipe data yaitu string nama, int usia, dan pointer Node 'next'. kemudian terdapat class bernama linkedlist  dengan atribut public 'head' dengan definisi sebagai berikut : <br/>
