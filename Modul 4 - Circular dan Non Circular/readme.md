@@ -938,43 +938,77 @@ int main() {
 ## 3. Lakukan Perintah Berikut : <br/> a. Tambahkan data wati 2330004 diantara Farrel dan Denis. <br/> b. Hapus data Denis <br/> c. Tambahkan data Owi 2330000 di awal. <br/> d. Tambahkan data David 23300100 di akhir. <br/> e. Ubah data Udin menjadi data Idin 23300045 <br/> f. Ubah data terakhir menjadi Lucy 23300101 <br/> g. Hapus data awal <br/> h. Ubah data awal menjadi Bagas 2330002. <br/> i. Hapus data akhir. <br/> j. Tampilkan Seluruh Data. <br/>
 #### Output Unguided 3.A:
 ![Screenshot A](Unguided3_Poin_A.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.B:
 ![Screenshot B](Unguided3_Poin_B.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.C:
 ![Screenshot C](Unguided3_Poin_C.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.D:
 ![Screenshot D](Unguided3_Poin_D.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.E:
 ![Screenshot E](Unguided3_Poin_E.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.F:
 ![Screenshot F](Unguided3_Poin_F.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.G:
 ![Screenshot G](Unguided3_Poin_G.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.H:
 ![Screenshot H](Unguided3_Poin_H.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.I:
 ![Screenshot I](Unguided3_Poin_I.png)
-#### Output Unguided 3.A:
+#### Output Unguided 3.J:
 ![Screenshot J](Unguided3_Poin_J.png)
 
-Kode diatas mendeklarasikan struct node dengan 3 tipe data yaitu string nama, int usia, dan pointer Node 'next'. kemudian terdapat class bernama linkedlist  dengan atribut public 'head' dengan definisi sebagai berikut : <br/>
-- LinkedList() digunakan untuk menginisialisasi 'head' dengan 'nullptr', menandakan bahwa linked list awalnya kosong. <br/>
-- void insertDepan(string nama, int usia) digunakan untuk menyisipkan data baru di awal linked list. Metode ini membuat node baru, mengisi data nama dan usia ke dalam node tersebut, dan kemudian mengatur 'next' node baru ke 'head'. 'head' kemudian diperbarui dengan node baru tersebut. <br/>
-- insertBelakang(string nama, int usia) digunakan untuk menyisipkan data baru di akhir linked list. Metode ini melakukan iterasi melalui linked list hingga menemukan node terakhir, lalu menyisipkan node baru setelah node terakhir tersebut. <br/>
-- insertTengah(string nama, int usia, string namaSebelum) digunakan untuk menyisipkan data baru setelah node dengan nama tertentu. Metode ini mencari node dengan nama yang diberikan, jika ditemukan, node baru akan disisipkan setelah node tersebut. <br/>
-- hapus(string nama) digunakan untuk menghapus node dengan nama tertentu dari linked list. Metode ini mencari node dengan nama yang diberikan dan menghapusnya dari linked list. <br/>
-- update(string oldNama, string newNama) digunakan untuk mengubah nama dari node dengan nama tertentu. Metode ini mencari node dengan nama yang diberikan dan menggantinya dengan nama baru. <br/>
-- isEmpty() merupakan fungsi bantu yang mengembalikan 'true' jika linked list kosong (yaitu 'head' adalah 'nullptr') dan 'false' jika sebaliknya. <br/>
-- display() digunakan untuk menampilkan seluruh data dalam linked list. Metode ini mencetak nama dan usia setiap node dalam format yang rapi ke layar. Jika linked list kosong, akan dicetak pesan "IS EMPTY!". <br/> <br/>
-Kemudian pada int main, diawali dengan inisialisasi linked list dengan 'LinkedList List;'. Pertama program memasukan data kemudian menampilkan seluruh data, Kedua program menghapus data Akechi menggunakan 'list.hapus("Akechi");', Ketiga Program menambahkan data baru yaitu futaba diantara john dan jane dengan cara 'list.insertTengah("Futaba", 18, "John");' yang dapat diartikan sebagai menambahkan elemen baru dengan nama Futaba berusia 18 tahun setelah John, Keempat program menambahkan data baru igor 20 dengan cara 'list.insertDepan("Igor", 20);', Kelima Mengubah data michael menjadi reyn 18 dengan cara hanya mengubah nama michael menjadi ryan 'list.update("Michael", "Reyn");', Keenam program menampilkan seluruh hasil akhir.
-
+Kode di atas adalah implementasi dari program C++ untuk mengelola linked list sederhana yang berisi data mahasiswa, seperti nama dan NIM. Berikut adalah penjelasan rinci mengenai kode tersebut: <br/>
+- Pertama, kita mendefinisikan sebuah struct bernama Mahasiswa yang memiliki tiga atribut: nama, nim, dan next yang merupakan pointer ke Mahasiswa berikutnya. Kemudian, kita mendeklarasikan variabel global head yang akan digunakan sebagai pointer kepala dari linked list. <br/>
+- insertDepan(): Menambahkan node baru di awal linked list. (Setelah membuat node baru program akan Mengatur next node baru ke head dan memperbarui head.) <br/>
+- insertTengah(): Menambahkan node baru di posisi tertentu dalam linked list. (Setelah program membuat node baru, program akan Mencari node sebelum posisi yang dituju kemudian Mengatur next node baru dan node sebelumnya untuk menyisipkan node baru.) <br/>
+- insertAkhir(): Menambahkan node baru di akhir linked list. (Setelah Membuat node baru, Jika linked list kosong, maka node baru menjadi head, Jika tidak, mencari node terakhir dan menambahkan node baru di belakangnya.) <br/>
+- changeDepan(): Mengubah data node pertama. <br/>
+- changeTengah(): Mengubah data node pada posisi tertentu. <br/>
+- changeAkhir(): Mengubah data node terakhir. <br/>
+- deleteDepan(): Menghapus node pertama. (Menghapus node pertama dan memperbarui head.) <br/>
+- deleteAkhir(): Menghapus node terakhir. (Pertama program mencari node sebelum node terakhir, kemudian Menghapus node terakhir dan memperbarui pointer next dari node sebelumnya.) <br/>
+- deleteTengah(): Menghapus node pada posisi tertentu. (Pertama program Mencari node sebelum posisi yang dituju, kemudian Menghapus node pada posisi tertentu dan memperbarui pointer next node sebelumnya.)<br/>
+- deleteList(): Menghapus seluruh linked list. (Menghapus seluruh linked list dengan melakukan iterasi dan menghapus setiap node.)<br/>
+- showList(): Menampilkan seluruh data dalam linked list. (Menampilkan seluruh data dalam linked list dengan melakukan iterasi dari head hingga NULL.)<br/><br/>
+Selain penjelasan diatas, Program juga menggunakan beberapa tipe looping seperti for dan do-while (digunakan untuk terus menerus menampilkan menu pilihan kepada pengguna hingga pengguna memilih untuk keluar dengan memasukkan pilihan 0.). Kemudian pada fungsi int main merupakan penggunaan dari semua fungsi di atas. Pengguna diberikan pilihan untuk memilih operasi yang ingin dilakukan pada linked list, seperti insert, change, delete, dan show data. <br/>
 
 ## Kesimpulan
 Linked list, baik single linked list maupun double linked list, adalah struktur data yang penting dan sering digunakan dalam pemrograman. Keduanya memiliki kelebihan dan kekurangan masing-masing, dan pilihan antara keduanya tergantung pada kebutuhan dan kegunaan spesifik dari aplikasi yang sedang dikembangkan. <br/>
 - Single Linked List <br/>
 Cocok untuk situasi di mana akses cepat ke elemen terakhir jarang diperlukan dan kebutuhan memori adalah prioritas.<br/>
 - Double Linked List <br/>
-Lebih sesuai untuk aplikasi di mana akses cepat ke elemen terakhir dan kebutuhan untuk mengunjungi elemen sebelumnya adalah penting, meskipun dengan biaya memori yang lebih tinggi dan kompleksitas implementasi yang lebih rumit.<br/>
+Lebih sesuai untuk aplikasi di mana akses cepat ke elemen terakhir dan kebutuhan untuk mengunjungi elemen sebelumnya adalah penting, meskipun dengan biaya memori yang lebih tinggi dan kompleksitas implementasi yang lebih rumit.<br/> <br/>
+
+Linked List Non Circular : <br/>
+A. Kesimpulan <br/>
+- Setiap node dalam linked list non-circular memiliki dua komponen: data dan pointer ke node berikutnya. <br/>
+- Operasi yang umum dilakukan pada linked list non-circular meliputi: insert (di depan, di tengah, di akhir), delete (di depan, di tengah, di akhir), dan display. <br/>
+- Membutuhkan pointer head untuk menunjuk ke node pertama dalam linked list. <br/>
+- Node terakhir dalam linked list menunjuk ke NULL.<br/>
+B. Keuntungan <br/>
+- Membutuhkan memori lebih sedikit dibandingkan dengan linked list circular. <br/>
+- Mudah dalam implementasi. <br/>
+C. Kekurangan <br/>
+- Tidak dapat mengunjungi kembali node sebelumnya. <br/> 
+- Operasi untuk mengunjungi node terakhir lebih lambat karena harus melalui setiap node. <br/> <br/>
+
+Linked List Circular : <br/>
+A. Kesimpulan <br/>
+- Mirip dengan linked list non-circular, tetapi node terakhir dalam linked list circular menunjuk kembali ke node pertama, membentuk suatu lingkaran. <br/>
+- Tidak memerlukan pointer NULL karena setiap node selalu memiliki node berikutnya. <br/>
+- Operasi yang umum dilakukan pada linked list circular sama dengan linked list non-circular. <br/>
+B. Keuntungan <br/>
+- Memungkinkan untuk mengunjungi kembali node sebelumnya dengan lebih mudah. <br/>
+- Operasi untuk mengunjungi node terakhir lebih cepat karena tidak perlu mencari node NULL. <br/>
+C. Kekurangan <br/>
+- Lebih kompleks dalam implementasi. <br/> 
+- Memerlukan memori lebih banyak dibandingkan dengan linked list non-circular. <br/> <br/>
+
+Kesimpulan Secara Umum : <br/>
+1. Linked list non-circular lebih sederhana dan mudah dalam implementasinya, tetapi memiliki keterbatasan dalam akses dan manajemen memori. <br/>
+2. Linked list circular memungkinkan akses yang lebih cepat dan fleksibilitas dalam akses ke node, namun memerlukan manajemen memori yang lebih kompleks. <br/>
+3. Pemilihan jenis linked list yang tepat tergantung pada kebutuhan dan karakteristik dari aplikasi yang akan diimplementasikan. <br/>
+4. Pada Linked List Circular terdapat Node *bantu yang berfungsi untuk transversing, sedangkan Linked List non circular hanya ada head dan tail. <br/><br/>
 
 ## Referensi
 [1] Sindar, A, STRUKTUR DATA DAN ALGORITMA DENGAN C++. 1st Edisi. Serang:CV.AA.RIZKY,2018.<br/>
