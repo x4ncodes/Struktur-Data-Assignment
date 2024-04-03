@@ -928,8 +928,34 @@ int main() {
 ## 2. Setelah membuat menu tersebut, masukkan data sesuai urutan berikut, lalu tampilkan data yang telah dimasukkan. (Gunakan insert depan, belakang atau tengah)
 ![Unguided2](Unguided2.png)
 #### Output Unguided 2:
+![Screenshot 1](No2_1.png)
+![Screenshot 2](No2_2.png)
+![Screenshot 3](No2_3.png)
+![Screenshot 4](No2_4.png)
+![Screenshot 5](No2_5.png)
+![Screenshot 6](No2_6.png)
 
-
+## 3. Lakukan Perintah Berikut : <br/> a. Tambahkan data wati 2330004 diantara Farrel dan Denis. <br/> b. Hapus data Denis <br/> c. Tambahkan data Owi 2330000 di awal. <br/> d. Tambahkan data David 23300100 di akhir. <br/> e. Ubah data Udin menjadi data Idin 23300045 <br/> f. Ubah data terakhir menjadi Lucy 23300101 <br/> g. Hapus data awal <br/> h. Ubah data awal menjadi Bagas 2330002. <br/> i. Hapus data akhir. <br/> j. Tampilkan Seluruh Data. <br/>
+#### Output Unguided 3.A:
+![Screenshot A](Unguided3_Poin_A.png)
+#### Output Unguided 3.A:
+![Screenshot B](Unguided3_Poin_B.png)
+#### Output Unguided 3.A:
+![Screenshot C](Unguided3_Poin_C.png)
+#### Output Unguided 3.A:
+![Screenshot D](Unguided3_Poin_D.png)
+#### Output Unguided 3.A:
+![Screenshot E](Unguided3_Poin_E.png)
+#### Output Unguided 3.A:
+![Screenshot F](Unguided3_Poin_F.png)
+#### Output Unguided 3.A:
+![Screenshot G](Unguided3_Poin_G.png)
+#### Output Unguided 3.A:
+![Screenshot H](Unguided3_Poin_H.png)
+#### Output Unguided 3.A:
+![Screenshot I](Unguided3_Poin_I.png)
+#### Output Unguided 3.A:
+![Screenshot J](Unguided3_Poin_J.png)
 
 Kode diatas mendeklarasikan struct node dengan 3 tipe data yaitu string nama, int usia, dan pointer Node 'next'. kemudian terdapat class bernama linkedlist  dengan atribut public 'head' dengan definisi sebagai berikut : <br/>
 - LinkedList() digunakan untuk menginisialisasi 'head' dengan 'nullptr', menandakan bahwa linked list awalnya kosong. <br/>

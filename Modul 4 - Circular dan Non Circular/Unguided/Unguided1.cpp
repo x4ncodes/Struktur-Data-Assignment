@@ -98,9 +98,10 @@ void deleteDepan() {
     }
     Mahasiswa* temp = head;
     head = head->next;
-    delete temp;
     cout << "Yessss! Data " << temp->nama << " dengan NIM " << temp->nim << " berhasil dihapus!" << endl;
+    delete temp;
 }
+
 
 void deleteAkhir() {
     if (head == NULL) {
