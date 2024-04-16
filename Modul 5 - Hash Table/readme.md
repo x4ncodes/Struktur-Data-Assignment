@@ -2,7 +2,7 @@
 <p align="center">Axandio Biyanatul Lizan - 2311102179</p>
 
 ## Dasar Teori
-Hash table atau tabel hash digunakan untuk mengindeks sekumpulan array untuk memudahkan proses pencarian. Hash function adalah fungsi yang digunakan untuk mengubah nilai kunci menjadi nilai yang disebut alamat hash. Alamat hash ini mewakili indeks posisi dalam array[1]. Hash merupakan modul (function) dalam algoritma. Teknik yang memungkinkan lokasi suatu record dapat diperoleh dengan mudah dan cepat dikenal dengan fungsi hashing. Untuk menyimpan data dalam hashing diantaranya menggunakan array yang dikenal dengan istilah tabel hashing. [2] <br/>
+Hash table atau tabel hash digunakan untuk mengindeks sekumpulan array untuk memudahkan proses pencarian. Hash function adalah fungsi yang digunakan untuk mengubah nilai kunci menjadi nilai yang disebut alamat hash. Alamat hash ini mewakili indeks posisi dalam array.[1] Hash merupakan modul (function) dalam algoritma. Teknik yang memungkinkan lokasi suatu record dapat diperoleh dengan mudah dan cepat dikenal dengan fungsi hashing. Untuk menyimpan data dalam hashing diantaranya menggunakan array yang dikenal dengan istilah tabel hashing. [2] <br/>
 
 Operasi Hash Table / Tabel Hash : <br/>
 1. Insertion <br/>
@@ -288,6 +288,9 @@ Pada int main/fungsi utama diuji lah kelas hashMap dengan menyisipkan beberapa d
 ### Implementasikan hash table untuk menyimpan data mahasiswa. Setiap mahasiswa memiliki NIM dan nilai. Implementasikan fungsi untuk menambahkan data baru, menghapus data, mencari data berdasarkan NIM, dan mencari data berdasarkan nilai. Dengan ketentuan : <br/> a. Setiap mahasiswa memiliki NIM dan nilai. <br/> b. Program memiliki tampilan pilihan menu berisi poin C. <br/> c. Implementasikan fungsi untuk menambahkan data baru, menghapus data, mencari data berdasarkan NIM, dan mencari data berdasarkan rentang nilai (80 – 90). <br/>
 
 ```C++
+/*
+Axandio Biyanatul Lizan - 2311102179
+*/
 #include <iostream>
 #include <list>
 #include <vector>
