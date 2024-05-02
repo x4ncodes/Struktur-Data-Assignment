@@ -5,7 +5,7 @@
 Stack (tumpukan) dapat diartikan sebagai kumpulan data, seolah-olah satu data ditempatkan di atas yang lain. Menambah dan menghapus data hanya dapat dilakukan dari ujung yang sama, yang disebut bagian atas tumpukan (top of stack). Pada kondisi tersebut, prinsip yang digunakan pada stack (tumpukan) adalah LIFO (last in first out). Stack adalah tipe data abstrak dengan kapasitas terbatas (sudah ditentukan sebelumnya). Ini adalah struktur data sederhana yang memungkinkan penambahan dan penghapusan elemen dalam urutan tertentu. Setiap kali sebuah elemen ditambahkan, ia berada di atas tumpukan dan satu-satunya elemen yang dapat dihapus adalah elemen yang berada di atas tumpukan, seperti tumpukan objek. [1] <br/>
 
 Penyimpanan data/item dimana data/item yang diakses adalah paling akhir yang disebut top of stack. Item ditempatkan membentuk tumpukan. [2] <br/>
-![Stack Picture](Tumpukan.png)
+![Stack Picture](Tumpukan.png)<br/>
 Tumpukan memiliki sifat Last In First Out (LIFO). Artinya, data yang terakhir kali dimasukkan/disisipkan akan menjadi data yang pertama kali keluar. Pada contoh di atas, yang berisi tumpukan A, B, dan C jelas terlihat bahwa C adalah data yang terakhir kali ditumpukkan. Jika terjadi operasi pengambilan data maka C adalah data yang akan keluar terlebih dulu.[2] <br/>
 
 Operasi - Operasi Stack : <br/>
@@ -163,7 +163,7 @@ Pada int main() ada pendeklarasian data seperti menambahkan kalkulus, struktur d
 
 ## Unguided 
 
-### 1. Buatlah program untuk menentukan apakah kalimat tersebut yang diinputkandalam program stack adalah palindrom/tidak. Palindrom kalimat yang dibaca daridepan dan belakang sama. Jelaskan bagaimana cara kerja programnya. <br/>
+### 1. Buatlah program untuk menentukan apakah kalimat tersebut yang diinputkan dalam program stack adalah palindrom/tidak. Palindrom kalimat yang dibaca daridepan dan belakang sama. Jelaskan bagaimana cara kerja programnya. <br/>
 ![polindrome soal](polindrome.png)
 
 ```C++
@@ -232,10 +232,10 @@ int main() {
     return 0;
 }
 ```
-#### Output Unguided 1 (Kata Polindrom):
-![Polindrome](kata_polindrome.png)
-#### Output Unguided 1 (Kata Bukan Polindrome):
-![Bukan Polindrome](bukan_polindrome.png)
+#### Output Unguided 1 (Kata Palindrom):
+![Palindrome](kata_polindrome.png)
+#### Output Unguided 1 (Kata Bukan Palindrome):
+![Bukan Palindrome](bukan_polindrome.png)
 
 Program diatas merupakan kode bahasa c++ yang menjelaskan mengenai pengecekan apakah kata/kalimat yang dimasukan merupakan tipe polindrome atau tidak polindrome yang menggunakan fungsi Stack sebagai operasinya. Pada kode diatas, terdapat 1 Deklarasi function dan 1 Pengecekan. : <br/>
 - string hapusNonAlpha(string str) <br/>
@@ -324,6 +324,7 @@ int main() {
 ```
 #### Output Unguided 2 (Reverse Kata):
 ![Reverse Kata](Reverse_Kata.png)
+
 Program diatas merupakan kode bahasa c++ yang menjelaskan mengenai reverse word atau pembalikan kata menggunakan fungsi operasi Stack. Pada kode diatas, terdapat 2 Deklarasi function. : <br/>
 - string reverseKata(string kata) <br/>
 Fungsi ini menerima satu parameter berupa string kata. Selanjutnya, dilakukan iterasi mundur melalui setiap karakter dalam string kata menggunakan loop 'for' dengan inisialisasi 'int a = kata.length() - 1', yang berarti dimulai dari indeks karakter terakhir hingga indeks '0'. Pada setiap iterasi, karakter pada indeks ke-a dari string kata ditambahkan ke dalam string 'reversedKata'. Dengan cara ini, karakter-karakter dalam kata tersebut dipindahkan ke string baru dalam urutan terbalik. String 'reversedKata' yang berisi karakter-karakter dalam kata yang sudah terbalik urutannya, akan dikembalikan sebagai output dari fungsi 'reverseKata'<br/>
