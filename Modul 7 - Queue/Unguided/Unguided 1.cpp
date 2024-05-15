@@ -28,9 +28,9 @@ public:
 
     // Fungsi untuk menambahkan pelanggan ke antrian
     void enqueueAntrian(string data) {
-        Node* newNode = new Node;
-        newNode->data = data;
-        newNode->next = nullptr;
+        Node* newNode = new Node; // Membuat node baru
+        newNode->data = data; // Mengisi node baru dengan data yang diberikan
+        newNode->next = nullptr; // Menetapkan pointer next dari node baru ke nullptr, karena node ini menjadi node terakhir dalam antrian.
         if (isEmpty()) {
             front = newNode;
             back = newNode;
@@ -46,16 +46,16 @@ public:
             cout << "Antrian kosong!" << endl;
             return;
         }
-        Node* temp = front;
-        front = front->next;
+        Node* temp = front; // Menyimpan pointer dari node paling depan ke 'temp'
+        front = front->next; // Menunjuk node berikutnya untuk menjadi front
         delete temp;
     }
 
     // Fungsi untuk menghitung jumlah pelanggan dalam antrian
     int countQueue() {
-        int count = 0;
-        Node* current = front;
-        while (current != nullptr) {
+        int count = 0; // Inisialisasi nilai awal 0
+        Node* current = front; // Menginisialisasi pointer current dengan front (elemen/node pertama).
+        while (current != nullptr) { 
             count++;
             current = current->next;
         }

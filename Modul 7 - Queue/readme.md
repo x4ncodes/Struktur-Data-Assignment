@@ -15,7 +15,7 @@ Operasi-operasi yang berhubungan dengan jumlah elemen suatu queue adalah : <br/>
 3. <b>Full<b>, merupakan prosedur untuk mengetahui apakah Queue penuh atau tidak. Prosedur ini hanya berlaku untuk queue yang jumlahnya terbatas. <br/><br/>
 
 Antrian merupakan suatu kumpulan data, maka tipe data yang sesuai untuk menyajikan antrian adalah menggunakan array atau list (senarai berantai). <br/>
-![Queue Teori](queue_array.png)
+![Queue Teori](queue_array.png) <br/>
 Gambar di atas menunjukkan contoh penyajian antrian menggunakan array. Antrian di atas berisi 6 elemen yaitu A, B, C, D, E dan F. Elemen A terletak di bagian depan antrian dan elemen F terletak di bagian belakang antrian. Jika ada elemen baru yang akan masuk, maka elemen tersebut akan diletakkan di sebelah kanan F. Dan jika ada elemen yang akan dihapus, maka A akan dihapus terlebih dahulu. [2] <br/>
 
 ## Guided 
@@ -128,27 +128,23 @@ int main() {
     return 0;
 }
 ```
-Kode diatas adalah bentuk implementasi dari Stack atau yang biasa dikenal tumpukan, kode diatas juga memiliki beberapa deklarasi prosedur & function. Hal pertama kode diatas menggunakan array yang bertipe string dengan nama variabel arrayBuku yang memiliki panjang array 5. Lalu terdapat 2 variabel bertipe data int, maksimal (berfungsi sebagai wadah/tempat/media) yang memiliki kapasitas 6 (0-5), kemudian ada inisiasi variabel top yang dimulai dari 0. Kemudian juga ada pengencekan apakah data stack udh penuh / kosong. Berikut adalah rincian penjelasan kode diatas : <br/>
-- Bool IsEmpty <br/>
-Function tersebut digunakan untuk mengecek apakah data stack kosong dengan cara mencocokan apakah nilai top sama dengan 0. <br/>
+Kode diatas adalah bentuk implementasi dari program queue yang mengutamakan fungsi FIFO (First In First Out), terdapat deklarasi variabel MAX_QUEUE yang berguna untuk menyimpan batas maksimal antrian (5), kemudian ada variabel front dan back yang berfungsi untuk mendeklarasi variabel elemen terdepan dan berikutnya. Pada variabel front dan back terdapat inisialisasi nilai awal yaitu 0, kemudian ada queueTeller yang digunakan untuk menyimpan data pelanggan sesuai dengan maksimal antrian (MAX_QUEUE). Untuk data lebih lanjut berikut adalah rincian penjelasan kode diatas : <br/>
 - Bool IsFull <br/>
-Function tersebut digunakan untuk mengecek apakah data stack penuh dengan cara mencocokan apakah nilai top sama dengan maksimal.<br/>
-- void pushArrayBuku <br/>
-Deklarasi tersebut menjelaskan cara menambahkan data buku baru. Hal pertama adalah pengecekan menggunakan IsFull, jika bernilai true berarti data stack penuh. jika bernilai false maka top akan di increment/tambah 1 dengan menambahkan data. <br/>
-- void popArrayBuku() <br/>
-Deklarasi tersebut menjelaskan cara menghapus buku. Hal pertama adalah pengecekan menggunakan IsEmpty, jika bernilai true maka data stack kosong dan tidak dapat menghapus. Jika bernilai false maka tumpukan (top) akan di kurang 1, kemudian data yang paling atas akan dihapus.<br/>
-- void peekArrayBuku(int posisi) <br/>
-Deklarasi tersebut adalah melihat elemen stack pada posisi tertentu. Hal pertama adalah pengecekan IsEmpty, jika bernilai true maka tidak ada data yang bisa dilihat. Jika bernilai false maka mencetak posisi dan elemen array pada posisi yang dimaksud. parameter posisi adalah indeks yang ingin diakses, arrayBuku[index]  <br/>
-- int countStack() <br/>
-Function tersebut digunakan untuk menghitung jumlah stack, dengan cara mengembalikan nilai top.<br/>
-- void changeArrayBuku(int posisi, string data) <br/>
-Deklarasi tersebut digunakan untuk mengganti data pada posisi tertentu. Pertama adalah pengecekan apakah posisi yang dimasukan melebihi top, jika iya maka akan mencetak posisi melebihi data yang ada, jika tidak maka terjadi iterasi untuk mencari posisi yang diinginkan, kemudian memperbarui arrayBuku dengan data yang baru. <br/>
-- void destroyBuku () <br/>
-Deklarasi tersebut digunakan untuk menghapus semua data buku dengan menggunakan iterasi perulangan for.<br/>
-- void cetakArrayBuku() <br/>
-Deklarasi tersebut digunakan untuk mencetak data buku. Pertama kode menggunakan perkondisian pengecekan jika IsEmpty bernilai true maka tidak ada data yang dicetak, jika bernilai false maka akan mencetak arrayBuku[i] sesuai iterasi perulangan.<br/>
+Function tersebut digunakan untuk mengecek apakah data stack kosong dengan cara mencocokan apakah nilai back(elemen berikutnya) sama dengan MAX_QUEUE(maksimal penyimpanana Antrian.). <br/>
+- Bool IsEmpty <br/>
+Function tersebut digunakan untuk mengecek apakah data stack penuh dengan cara mengecek nilai dari variabel back dan mengembalikan nilai back jika sama dengan 0<br/>
+- void enqueueAntrian(string data) <br/>
+Deklarasi tersebut menjelaskan cara menambahkan antrian pelanggan. Terdapat 2 percabangan if, if yang pertama digunakan untuk melakukan pengecekan apakah antrian penuh atau tidak, kemudian if yang kedua digunakan untuk menambahkan data dengan memperbarui nilai dari queueTeller, dan meng increase nilai dari variabel front & back. Lalu kode dibawahnya menjelaskan bahwa jika antrian tidak kosong (sudah ada isinya namun tidak full/penuh) maka data akan diarahkan ke elemen berikutnya. Pada deklarasi ini menggunakan parameter string data untuk menambahkan data.  <br/>
+- void dequeueAntrian() <br/>
+Deklarasi tersebut menjelaskan cara menghapus antrian pelanggan. Terdapat 1 perkondisian if yang digunakan untuk pengecekan apakah antrian kosong atau tidak. Kemudian terdapat perulangan for yang digunakan untuk menggeser elemen ke depan satu posisi, kemudian menggunakan back-- untuk menghapus dan memperbarui indeks elemen berikutnya.<br/>
+- void clearQueue() <br/>
+Deklarasi tersebut digunakan untuk menghapus seluruh antrian dalam cakupan array, terdapat if perkondisian yang berguna untuk mengecek apakah antrian kosong atau tidak, kemudian perulangan digunakan untuk menyeting semua elemen ke string kosong, terakhir mengembalikan nilai front dan back menjadi 0.  <br/>
+- int countQueue() <br/>
+Function tersebut digunakan untuk menghitung jumlah queue, dengan cara mengembalikan nilai back.<br/>
+- void viewQueue() <br/>
+Deklarasi tersebut digunakan untuk menampilkan antrian yang menggunakan perulangan for dengan deklarasi nilai i=0, kemudian terdapat percabangan if didalam perulangan. Jika kondisi queueTeller tidak bernilai "" (kosong), maka akan menampilkan data baru dengan menampilkan data pada queueTeller antrian ke i. Jika kondisi queueTeller[i] = "" (kosong), maka akan menampilkan output "(kosong)". <br/>
 <br/>
-Pada int main() ada pendeklarasian data seperti menambahkan kalkulus, struktur data, matematika diskrit, dasar multimedia, dan Inggris. Karena stack bersifat Last In First Out maka data kalkulus berada diurutan paling bawah dan data inggris berada diurutan paling atas. selain menambahkan data, ada juga pengecekan data, penghapusan data paling atas, pengecekan data stack penuh atau kosong, pengecekan banyak data menggunakan countStack, mengubah data pada posisi ke 2, kemudian menghapus seluruh data, dan mencetak hasil akhir data. <br/>
+Pada int main() menambahkan data Andi dan Maya, kemudian menampilkan antrian. kemudian ada fungsi untuk menampilkan jumlah queue, dan ada pengurangan antrian. Antrian yang dihapus adalah yang pertama kali masuk yaitu 'Andi', setelah menghapus antrian maka akan menampilkan antrian kembali dengan data yang telah diperbarui.   <br/>
 
 ## Unguided 
 
@@ -184,9 +180,9 @@ public:
 
     // Fungsi untuk menambahkan pelanggan ke antrian
     void enqueueAntrian(string data) {
-        Node* newNode = new Node;
-        newNode->data = data;
-        newNode->next = nullptr;
+        Node* newNode = new Node; // Membuat node baru
+        newNode->data = data; // Mengisi node baru dengan data yang diberikan
+        newNode->next = nullptr; // Menetapkan pointer next dari node baru ke nullptr, karena node ini menjadi node terakhir dalam antrian.
         if (isEmpty()) {
             front = newNode;
             back = newNode;
@@ -202,16 +198,16 @@ public:
             cout << "Antrian kosong!" << endl;
             return;
         }
-        Node* temp = front;
-        front = front->next;
+        Node* temp = front; // Menyimpan pointer dari node paling depan ke 'temp'
+        front = front->next; // Menunjuk node berikutnya untuk menjadi front
         delete temp;
     }
 
     // Fungsi untuk menghitung jumlah pelanggan dalam antrian
     int countQueue() {
-        int count = 0;
-        Node* current = front;
-        while (current != nullptr) {
+        int count = 0; // Inisialisasi nilai awal 0
+        Node* current = front; // Menginisialisasi pointer current dengan front (elemen/node pertama).
+        while (current != nullptr) { 
             count++;
             current = current->next;
         }
@@ -262,13 +258,21 @@ int main() {
 #### Output Unguided 1:
 ![Output Unguided 1](unguided1.png)
 
-Program diatas merupakan kode bahasa c++ yang menjelaskan mengenai pengecekan apakah kata/kalimat yang dimasukan merupakan tipe polindrome atau tidak polindrome yang menggunakan fungsi Stack sebagai operasinya. Pada kode diatas, terdapat 1 Deklarasi function dan 1 Pengecekan. : <br/>
-- string hapusNonAlpha(string str) <br/>
-Fungsi diatas digunakan untuk menghapus karakter non-alfabet dari string. Fungsi ini menerima satu parameter berupa string str. Kemudian, dilakukan iterasi melalui setiap karakter dalam string tersebut menggunakan loop for (char a : str).Pada setiap iterasi, dilakukan pengecekan apakah karakter tersebut merupakan karakter alfabet atau bukan dengan menggunakan fungsi isalpha(a). Jika karakter tersebut adalah alfabet, maka karakter tersebut ditambahkan ke dalam string result. Selain itu juga ada fungsi tolower(a) yang digunakan untuk mengkonversi atau merubah menjadi huruf kecil.<br/>
-- bool isPalindrome(string str) <br/>
-Fungsi ini merupakan fungsi pengecekan apakah string merupakan sebuah polindrome atau tidak. stack<char> charStack;: Baris ini mendeklarasikan sebuah objek dari kelas stack dengan tipe data elemen char, yang dinamakan charStack. int length = str.length();: Baris ini menghitung panjang dari string str dengan menggunakan fungsi length(). Terdapat 2 fungsi iterasi perulangan for pada fungsi pengecekan ini. Iterasi pertama adalah memasukkan setengah pertama dari string ke dalam stack, dan Iterasi kedua adalah membandingkan setengah kedua dari string dengan karakter yang ada di stack. Ada 1 Perkondisian if yang berfungsi untuk jika panjang string ganjil, maka skip karakter di tengah. <br/>
+Program diatas merupakan kode bahasa c++ yang menjelaskan mengenai Antrian Teller menggunakan konsep queue linked list. Pertama ada deklarasi struct Node yang berfungsi untuk menyimpan data dari string data, kemudian mengarahkan pointer ke node berikutnya. Kemudian ada deklarasi dari Class yang dimana pada class private digunakan untuk deklarasi pointer node untuk front dan back, Class public digunakan untuk mendeklarasikan beberapa fungsi dan void. Berikut adalah rincian fungsi dan deklarasi void : <br/>
+- bool isEmpty() <br/>
+Fungsi diatas digunakan untuk mengecek apakah antrian kosong atau tidak dengan cara mencocokan nilai elemen terdepan (front) sama dengan 0/nullptr.<br/>
+-  void enqueueAntrian(string data) <br/>
+Deklarasi diatas digunakan untuk menambahkan sebuah antrian baru. Dengan menggunakan linkedlist, pertama mendeklarasi node baru kemudian mengisi data node yang disimpan dalam anggota data node baru, lalu next digunakan untuk memberikan arahan ke nullptr menunjuk bahwa node ini adalah node terakhir dalam antrian (sebelumnya). Terdapat perkondisian if-else, if digunakan untuk mengecek apakah antrian kosong atau tidak, jika kosong maka front dan back akan diarahkan ke node baru, Jika tidak kosong maka back akan diarahkan ke node terakhir dan mengisi back dengan newNode yang berisikan data. <br/>
+-  void dequeueAntrian() <br/>
+Deklarasi diatas digunakan untuk menghapus antrian teller yang menggunakan linkedlist. Terdapat perkondisian if yang digunakan untuk pengecekan apakah antrian kosong atau tidak, jika kosong akan menampilkan output antrian kosong!, jika tidak kosong maka akan diarahkan ke else  yang berisi <br/>
+- int countQueue() <br/>
+Fungsi diatas digunakan untuk menghitung jumlah antrian. Dengan cara pertama menginisialisasi nilai count = 0, kemudian meletakan pointer current ke front. Lalu ada perulangan yang memiliki kondisi / syarat current != nullptr (tidak boleh 0), lalu count akan bertamabah (increase) dan current diarahkan ke node berikutnya. Lalu setelah proses selesai, maka akan mengembalikan nilai count yang akan bertambah sesuai dengan jumlah total node.<br/>
+- void clearQueue() <br/>
+Deklarasi diatas digunakan untuk menghapus keseluruhan antrian node. Perulangan while digunakan untuk menghapus dengan syarat/kondisi antrian tidak boleh kosong lalu menghapus menggunakan deklarasi dequeueAntrian(). <br/>
+- void viewQueue() <br/>
+Deklarasi diatas digunakan untuk melihat antrian. Pointer current diarahkan ke front (node pertama), kemudian menginisialisasi index dengan nilai awal 1. Lalu ada perulangan while dengan syarat current tidak boleh 0 (!= nullptr). Lalu memanggil nilai index lalu current mengarah ke data, setelah itu diarahkan ke node berikutnya dan index akan terus bertambah sesuai total data yang dimasukan.<br/>
 <br/>
-Pada int main() terdapat tipe data string dengan variabel 'masukan'. kemudian terdapat fungsi getline yang berguna untuk mengabaikan spasi dan dapat mengecek lebih dari 1 kata. Kemudian ada string cleanMasukan yang berfungsi untuk menghapus karakter non-alfabet dan mengubah huruf menjadi lowercase. Ada perkondisian IF-ELSE yang berguna untuk pengecekan apakah kata/kalimat yang diinputkan oleh user polindrome atau bukan polindrome. <br/>
+Pada int main() Pertama deklarasi objek queue dari kelas Queue, kemudian ada pemanggilan beberapa fungsi dan void seperti enqueueAntrian, viewQueue, dll. Dalam pemanggilan fungsi dan void wajib menggunakan queue didepan variabel deklarasi. Kemudian program mengembalikan nilai 0 untuk menghentikan program,  <br/>
 
 ### 2. Dari nomor 1 buatlah konsep antri dengan atribut Nama mahasiswa dan NIM Mahasiswa <br/>
 ```C++
@@ -389,13 +393,15 @@ int main() {
 #### Output Unguided 2:
 ![Output Unguided 2](unguided2.png)
 
-Program diatas merupakan kode bahasa c++ yang menjelaskan mengenai reverse word atau pembalikan kata menggunakan fungsi operasi Stack. Pada kode diatas, terdapat 2 Deklarasi function. : <br/>
-- string reverseKata(string kata) <br/>
-Fungsi ini menerima satu parameter berupa string kata. Selanjutnya, dilakukan iterasi mundur melalui setiap karakter dalam string kata menggunakan loop 'for' dengan inisialisasi 'int a = kata.length() - 1', yang berarti dimulai dari indeks karakter terakhir hingga indeks '0'. Pada setiap iterasi, karakter pada indeks ke-a dari string kata ditambahkan ke dalam string 'reversedKata'. Dengan cara ini, karakter-karakter dalam kata tersebut dipindahkan ke string baru dalam urutan terbalik. String 'reversedKata' yang berisi karakter-karakter dalam kata yang sudah terbalik urutannya, akan dikembalikan sebagai output dari fungsi 'reverseKata'<br/>
-- string pembalikanKalimat(string kalimat) <br/>
-Pada awalnya, dideklarasikan sebuah stack bernama kataStack yang bertipe stack<string> untuk menyimpan kata-kata dalam urutan terbalik. Selain itu, dideklarasikan juga dua string, yaitu kata untuk menyimpan kata sementara dan pembalikanKalimat untuk menyimpan kalimat terbalik. Kemudian dilakukan sebuah iterasi melalui setiap karakter dalam string kalimat menggunakan loop 'for' dengan deklarasi 'char x : kalimat'. Pada setiap iterasi, dilakukan pengecekan apakah karakter saat itu adalah spasi. Jika iya, maka kata sementara yang telah terbentuk ('kata') akan dimasukkan ke dalam stack kataStack setelah diubah urutan karakternya menggunakan fungsi reverseKata. Kemudian, variabel kata direset kembali menjadi string kosong untuk menampung kata berikutnya. Jika karakter saat itu bukan spasi, maka karakter tersebut ditambahkan ke dalam kata sementara. Kemudian setelah iterasi selesai, kata sementara terakhir (kata yang tidak diakhiri oleh spasi) juga dimasukkan ke dalam stack 'kataStack' setelah diubah urutan karakternya menggunakan fungsi 'reverseKata'. Proses pengambilan kata-kata dari stack 'kataStack' dan dimasukkan ke dalam string 'pembalikanKalimat' satu per satu dengan menambahkan spasi di antara setiap kata. Hal ini dilakukan sampai stack kataStack kosong. Kemudian, string 'pembalikanKalimat' yang berisi kalimat dengan urutan kata terbalik akan dikembalikan sebagai output dari fungsi 'pembalikanKalimat'.  <br/>
+Program diatas merupakan kode yang kurang lebih konsepnya sama seperti no 1 unguided, hanya memiliki beberapa perbedaan dalam hal berikut : <br/>
+- Struct Mahasiswa dan Struct Node<br/>
+Struct Mahasiswa digunakan untuk menyimpan beberapa data seperti nama dan nim, sedangkan Struct Node digunakan untuk menyimpan data, dan pointer node untuk diarahkan ke node berikutnya.
+- void enqueueAntrian(string nama, long long int nim) <br/>
+Pada deklarasi ini terdapat perbedaan dengan no 1 unguided yaitu pada pemanggilan/deklarasi data untuk nama dan nim. newNode->data.nama = nama (mengisi anggota nama (struct Mahasiswa) dari data(struct Node) pada node baru yang diberikan argumen 'nama'). untuk newNode->data.nim = nim (mengisi anggota nim dari data pada node baru yang diberikan sebagai argumen nim.)  <br/>
+- void viewQueue() <br/>
+Perbedaan deklarasi unguided 2 dan unguided 1 adalah pada line pemanggilan/line cetak. Unguided 1 hanya current->data, sedangkan Unguided 2 current->data.nama dikarenakan memanggil nama dari data. <br/>
 <br/>
-Pada int main() terdapat tipe data string dengan variabel 'kalimat'. kemudian terdapat fungsi getline yang berguna untuk mengabaikan spasi dan dapat mengecek lebih dari 1 kata. Kemudian ada 'int kataCount = 0' yang menandakan bahwa belum ada kata sama sekali, Kemudian, dilakukan iterasi melalui setiap karakter dalam string kalimat menggunakan loop 'for' dengan deklarasi 'char a : kalimat'. Setiap kali karakter yang ditemui adalah spasi, nilai kataCount akan ditambah satu. Proses ini bertujuan untuk menghitung jumlah kata dalam kalimat. Kemudian ada pengecekan If apakah nilai 'kataCount' kurang dari 2. Jika iya, artinya kalimat yang dimasukkan tidak memiliki minimal tiga kata. Maka, program akan menampilkan pesan kesalahan "Kalimat harus memiliki minimal 3 kata!" dan menghentikan program dengan mengembalikan nilai 1 sebagai tanda kesalahan. Jika kalimat memiliki minimal tiga kata, maka fungsi 'pembalikanKalimat' dipanggil untuk melakukan pembalikan urutan kata, dan hasilnya disimpan dalam variabel 'hasil', kemudian program menampilkan sebuah informasi string "Hasil Data: " diikuti dengan nilai variabel 'hasil'.<br/>
+Pada Kode Unguided 2 juga menggunakan tipe data long long int yang berarti digunakan untuk menyimpan bilangan bulat (integer) yang lebih besar daripada yang bisa ditampung oleh tipe int biasa. Tipe data ini sangat berguna ketika Anda memerlukan rentang nilai yang sangat besar. Jika tidak menggunakan long long int maka NIM yang saya masukan 2311102179 dapat berubah nilainya menjadi mines(-)<br/>
 
 ## Kesimpulan
 QUEUE merupakan struktur data dinamis, ketika program dijalankan, jumlah elemennya dapat berubah. Tumpukan dikenal dengan menggunakan prinsip LIFO (Last In First Out), maka pada antrian prinsip yang digunakan adalah FIFO (First In First Out). Queue menggunakan prinsip FIFO (First In First Out). Dari unguided dan guided bahwa queue juga dapat dipasangkan dengan array dan juga linkedlist. <br/>
