@@ -270,7 +270,16 @@ int main() {
 ![Output Unguided 1](unguided1.png)
 
 #### Penjelasan Program Unguided 1:
-Kode program c++ diatas adalah implementasi dari Searching yang menggunakan binary search
+Kode program c++ diatas adalah implementasi dari Searching yang menggunakan binary search. Pertama ada deklarasi struct dengan nama CharIndex yang menampung variabel karakter dan indeks. Penjelasan lebih rinci mengenai fungsi binarySearch dan fungsi main : <br/>
+1) int binarySearch(CharIndex arr[], int size, char x) <br/>
+Fungsi diatas digunakan untuk membantu mencari huruf pada suatu kalimat menggunakan binary search. Pertama terdapat deklarasi variabel kiri dengan nilai awal 0, dan kanan size - 1. Terdapat perulangan dengan kondisi kiri kurang dari sama dengan kanan. Terdapat rumus perhitungan untuk mencari nilai tengah array. Kemudian terdapat 2 perkondisian if : <br/>
+- Perkondisian IF pertama <br/>
+Apabila nilai array tengah karakter sesuai dengan nilai x, maka data ditemukan dengan mengembalikan nilai tengah dan perulangan akan berhenti <br/>
+- Perkondisian IF kedua <br/>
+Jika perkondisian if pertama tidak terpenuhi maka akan melalui perkondisian IF yang kedua yaitu kondisi awal nilai array tengah data karakter kurang dari x maka nilai kiri = tengah + 1. Jika kondisi awal tidak terpenuhi maka nilai kanan = tengah -1 untuk mencari data yang ingin dicari. <br/> <br/>
+Setelah itu jika data belum ditemukan maka program akan terus berulang jika data yang ingin dicari belum ditemukan. <br/>
+2) int main() <br/>
+Pada fungsi main terdapat deklarasi variabel kalimat dan hurufDicari. kemudian program meminta user untuk memasukan kalimat dan huruf yang akan dicari. Kemudian terdapat deklarasi variabel huruf dengan nilai dari hurufDicari, dan length untuk variabel kalimat. Setelah itu program membuat array untuk menyimpan karakter dan indeks dari karakter (charIndexArray[]). Setelah itu array diurutkan menggunakan sorting dengan mengembalikan nilai karakter a lebih kecil dari karakter b. Setelah array diurutkan, program akan mencari huruf yang dicari dengan inisialisasi index dengan fungsi binarySearch, lalu memanggil pointer untuk menyimpan indeks huruf yang ditemukan pada memori yang dialokasikan sepanjang 'length', lalu menyimpan indeks/elemen array yang ditemukan pada resultIndices. Kemudian jika huruf telah ditemukan, maka program akan mencari semua indeks dari kemunculan huruf tersebut. Setelah itu akan mengurutkan indeks kembali yang telah ditemukan, lalu program akan mencetak/menampilkan hasil. Setelah menampilkan hasil program akan langsung membersihkan memori dari charIndexArray dan resultIndices. <br/> <br/>
 
 ### 2. Buatlah sebuah program yang dapat menghitung banyaknya huruf vocal dalam sebuah kalimat! <br/>
 ```C++
@@ -352,15 +361,12 @@ int main() {
 ![Output Unguided 2](unguided2.png)
 
 #### Penjelasan Program Unguided 2:
-Program diatas merupakan kode yang kurang lebih konsepnya sama seperti no 1 unguided, hanya memiliki beberapa perbedaan dalam hal berikut : <br/>
-- Struct Mahasiswa dan Struct Node<br/>
-Struct Mahasiswa digunakan untuk menyimpan beberapa data seperti nama dan nim, sedangkan Struct Node digunakan untuk menyimpan data, dan pointer node untuk diarahkan ke node berikutnya.
-- void enqueueAntrian(string nama, long long int nim) <br/>
-Pada deklarasi ini terdapat perbedaan dengan no 1 unguided yaitu pada pemanggilan/deklarasi data untuk nama dan nim. newNode->data.nama = nama (mengisi anggota nama (struct Mahasiswa) dari data(struct Node) pada node baru yang diberikan argumen 'nama'). untuk newNode->data.nim = nim (mengisi anggota nim dari data pada node baru yang diberikan sebagai argumen nim.)  <br/>
-- void viewQueue() <br/>
-Perbedaan deklarasi unguided 2 dan unguided 1 adalah pada line pemanggilan/line cetak. Unguided 1 hanya current->data, sedangkan Unguided 2 current->data.nama dikarenakan memanggil nama dari data. <br/>
-<br/>
-Pada Kode Unguided 2 juga menggunakan tipe data long long int yang berarti digunakan untuk menyimpan bilangan bulat (integer) yang lebih besar daripada yang bisa ditampung oleh tipe int biasa. Tipe data ini sangat berguna ketika Anda memerlukan rentang nilai yang sangat besar. Jika tidak menggunakan long long int maka NIM yang saya masukan 2311102179 dapat berubah nilainya menjadi mines(-)<br/>
+Kode program diatas merupakan implementasi searching menggunakan sequential search. Pertama adalah deklarasi dari struct VocalData untuk menyimpan pointer indices dan count. Lalu terdapat 2 buah fungsi dan prosedur untuk program dengan rincian penjelasan sebagai berikut : <br/>
+1) bool isVocal(char ch) <br/>
+Fungsi diatas digunakan untuk pengecekan sebuah karakter apakah huruf vokal atau tidak. Kemudian dalam fungsi tersebut terdapat function tolower untuk merubah huruf besar menjadi huruf kecil. dan mengembalikan nilai ch dengan rincian a,e,i,o, dan u. <br/>
+2) void sequentialSearchVocals(const string& kalimat, set<char>& vocalsFound, VocalData& vocalData) <br/>
+Deklarasi diatas digunakan untuk mencari huruf vokal menggunakan sequential search dengan ketentuan parameter kalimat, vocalsFound, dan vocalData. Kemudian ada inisialisasi dari length yang berarti menghitung panjang  jumlah karakter dari string yang disimpan dalam variabel kalimat, kemudian ada inisialisasi jumlah huruf vokal dan mengalokasikan memori untuk array dinamis. Lalu ada perulangan for yang digunakan untuk mengecek satu per satu karakter dalam string kalimat. <br/> <br/>
+Pada fungsi main terdapat inisialisasi variabel kalimat, dan program meminta user untuk menginputkan kalimat lebih dari 1 kata. Setelah itu program akan menampilkan ulang kalimat yang dimasukan oleh user kemudian menyimpan huruf vokal unik pada set<char> vocalsFound dan menyimpan data dari huruf vokal pada VocalData vocalData. Setelah menyimpan huruf vokal, program akan mencari huruf vokal menggunakan fungsi sequentialSearchVocals. Kemudian program akan mencetak jumlah huruf vokal yang ditemukan dan huruf vokal apa aja yang ditemukan menggunakan perulangan for, lalu program akan mencetak indeks dari huruf vokal. Terakhir program membersihkan array dinamis untuk menyimpan huruf vokal. <br/>
 
 ### 3. Diketahui data = 9, 4, 1, 4, 7, 10, 5, 4, 12, 4. Hitunglah berapa banyak angka 4 dengan menggunakan algoritma Sequential Search! <br/>
 ```C++
@@ -427,35 +433,28 @@ int main() {
 ![Output Unguided 3](unguided3.png)
 
 #### Penjelasan Program Unguided 3:
-Program diatas merupakan kode bahasa c++ yang menjelaskan mengenai Antrian Teller menggunakan konsep queue linked list. Pertama ada deklarasi struct Node yang berfungsi untuk menyimpan data dari string data, kemudian mengarahkan pointer ke node berikutnya. Kemudian ada deklarasi dari Class yang dimana pada class private digunakan untuk deklarasi pointer node untuk front dan back, Class public digunakan untuk mendeklarasikan beberapa fungsi dan void. Berikut adalah rincian fungsi dan deklarasi void : <br/>
-- bool isEmpty() <br/>
-Fungsi diatas digunakan untuk mengecek apakah antrian kosong atau tidak dengan cara mencocokan nilai elemen terdepan (front) sama dengan 0/nullptr.<br/>
--  void enqueueAntrian(string data) <br/>
-Deklarasi diatas digunakan untuk menambahkan sebuah antrian baru. Dengan menggunakan linkedlist, pertama mendeklarasi node baru kemudian mengisi data node yang disimpan dalam anggota data node baru, lalu next digunakan untuk memberikan arahan ke nullptr menunjuk bahwa node ini adalah node terakhir dalam antrian (sebelumnya). Terdapat perkondisian if-else, if digunakan untuk mengecek apakah antrian kosong atau tidak, jika kosong maka front dan back akan diarahkan ke node baru, Jika tidak kosong maka back akan diarahkan ke node terakhir dan mengisi back dengan newNode yang berisikan data. <br/>
--  void dequeueAntrian() <br/>
-Deklarasi diatas digunakan untuk menghapus antrian teller yang menggunakan linkedlist. Terdapat perkondisian if yang digunakan untuk pengecekan apakah antrian kosong atau tidak, jika kosong akan menampilkan output antrian kosong!, jika tidak kosong maka akan diarahkan ke else  yang berisi <br/>
-- int countQueue() <br/>
-Fungsi diatas digunakan untuk menghitung jumlah antrian. Dengan cara pertama menginisialisasi nilai count = 0, kemudian meletakan pointer current ke front. Lalu ada perulangan yang memiliki kondisi / syarat current != nullptr (tidak boleh 0), lalu count akan bertamabah (increase) dan current diarahkan ke node berikutnya. Lalu setelah proses selesai, maka akan mengembalikan nilai count yang akan bertambah sesuai dengan jumlah total node.<br/>
-- void clearQueue() <br/>
-Deklarasi diatas digunakan untuk menghapus keseluruhan antrian node. Perulangan while digunakan untuk menghapus dengan syarat/kondisi antrian tidak boleh kosong lalu menghapus menggunakan deklarasi dequeueAntrian(). <br/>
-- void viewQueue() <br/>
-Deklarasi diatas digunakan untuk melihat antrian. Pointer current diarahkan ke front (node pertama), kemudian menginisialisasi index dengan nilai awal 1. Lalu ada perulangan while dengan syarat current tidak boleh 0 (!= nullptr). Lalu memanggil nilai index lalu current mengarah ke data, setelah itu diarahkan ke node berikutnya dan index akan terus bertambah sesuai total data yang dimasukan.<br/>
-<br/>
-Pada int main() Pertama deklarasi objek queue dari kelas Queue, kemudian ada pemanggilan beberapa fungsi dan void seperti enqueueAntrian, viewQueue, dll. Dalam pemanggilan fungsi dan void wajib menggunakan queue didepan variabel deklarasi. Kemudian program mengembalikan nilai 0 untuk menghentikan program,  <br/>
- 
+Kode program c++ diatas merupakan sebuah implementasi untuk menemukan data menggunakan sequential search. Pertama terdapat deklarasi struct dengan nama SearchResult yang digunakan untuk menyimpan pointer indices dan count. Lalu terdapat deklarasi dan fungsi, penjelasan detail sebagai berikut : <br/>
+1) void sequentialSearch(const int data[], int size, int target, SearchResult& result) <br/>
+Deklarasi diatas digunakan untuk menemukan sebuah data menggunakan algoritma sequential search. Terdapat inisialisasi untuk jumlah elemen yang ditemukan dengan nilai awal 0, kemudian terdapat alokasi memori untuk array dinamis. Setelah itu ada perulangan for dengan int i awal 0, dan i kurang dari size, i bertambah 1. Kemudian terdapat perkondisian if didalam perulangan for dengan kondisi jika data pada array i == target maka akan menyimpan sebuah indeks dari elemen tersebut dan meningkatkan jumlah. <br/> <br/>
+Pada fungsi main terdapat deklarasi data, panjang array, dan target dengan nilai 4, serta pemanggil Struct SearchResult dengan variabel result. Kemudian program melakukan pemanggilan terhadap fungsi sequentialSearch dengan parameter data, size, target, dan result. Kemudian program mencetak nilai pada data menggunakan perulangan for. Setelah itu program kan mencetak angka 4 dan indeks yang ditemukan untuk angka 4 menggunakan perulangan for dengan kondisi nilai i awal = 0, lalu i kurang dari jumlah elemen yang ditemukan dan i bertambah 1, kemudian akan mencetak indeks dimana elemen yang dicari ditemukan dalam array aslinya. Jika i bukan indeks terakhir maka akan ditambahkan tanda koma ',' setelah mencetak indeks. Dan yang terakhir adalah menghapus memori yang dialokasikan secara dinnamis untuk array result.indices dan mencegah terjadinya kebocoran memori setelah digunakan. <br/> 
+
 ## Kesimpulan
-QUEUE merupakan struktur data dinamis, ketika program dijalankan, jumlah elemennya dapat berubah. Tumpukan dikenal dengan menggunakan prinsip LIFO (Last In First Out), maka pada antrian prinsip yang digunakan adalah FIFO (First In First Out). Queue menggunakan prinsip FIFO (First In First Out). Dari unguided dan guided bahwa queue juga dapat dipasangkan dengan array dan juga linkedlist. <br/>
+Dalam pemrograman, pencarian (searching) adalah proses mencari nilai tertentu di dalam kumpulan data (biasanya dalam bentuk array atau daftar). Ada dua jenis utama pencarian yang umum digunakan: binary search (pencarian biner) dan sequential search (pencarian berurutan). <br/>
 
-Berikut ini operasi - operasi standar pada queue : <br/>
-1. <b>Inisialisasi<b>, merupakan prosedur untuk membuat queue pada kondisi awal, yaitu queue yang masih kosong (belum mempunyai elemen). <br/>
-2. <b>InQueue<b>, Insert Queue merupakan prosedur untuk memasukkan sebuah elemen baru pada queue. Jumlah elemen Queue akan bertambah satu dan elemen tersebut merupakan elemen belakang. <br/>
-3. <b>DeQueue<b>, Delete Queue merupakan prosedur untuk menghapus/mengambil sebuah elemen dari queue. Elemen yang diambil adalah elemen depan dan jumlah elemen queue akan berkurang satu. <br/> <br/>
+1. Sequential Search (Pencarian Berurutan): <br/>
+- Sequential search adalah metode pencarian yang sederhana dan langsung. <br/>
+- Proses pencarian dimulai dari awal hingga akhir kumpulan data. <br/>
+- Setiap elemen dalam kumpulan data diperiksa satu per satu hingga nilai yang dicari ditemukan atau sampai akhir kumpulan data. <br/>
+- Cocok digunakan untuk kumpulan data yang tidak terurut atau ukuran kumpulan data yang kecil. <br/>
+- Kekurangannya adalah kecepatan pencarian kurang efisien untuk kumpulan data yang besar karena memerlukan waktu linier (O(n)) untuk menyelesaikan pencarian. <br/> <br/>
 
-Operasi-operasi yang berhubungan dengan jumlah elemen suatu queue adalah : <br/>
-1. <b>Size<b>, yaitu operasi untuk mendapatkan banyaknya elemen queue. <br/>
-2. <b>Empty<b>, yaitu prosedur untuk mengetahui apakah queue dalam keadaan kosong atau tidak. Dengan status ini maka dapat dicegah dilakukannya operasi Dequeue dari suatu queue yang kosong. <br/>
-3. <b>Full<b>, merupakan prosedur untuk mengetahui apakah Queue penuh atau tidak. Prosedur ini hanya berlaku untuk queue yang jumlahnya terbatas. <br/><br/>
-
+2. Binary Search (Pencarian Biner): <br/>
+- Binary search adalah metode pencarian yang lebih efisien yang hanya dapat diterapkan pada kumpulan data yang telah diurutkan. <br/>
+- Proses pencarian membagi kumpulan data menjadi dua bagian dan hanya memeriksa bagian mana yang mungkin berisi nilai yang dicari berdasarkan urutan data. <br/>
+- Setiap iterasi mengurangi jumlah data yang harus diperiksa menjadi setengah dari iterasi sebelumnya. <br/>
+- Cocok digunakan untuk kumpulan data yang besar dan terurut. <br/>
+- Keunggulannya adalah memiliki kompleksitas waktu logaritmik (O(log n)), sehingga lebih cepat dibandingkan dengan pencarian berurutan untuk kumpulan data yang besar. <br/><br/>
+Kesimpulannya, pemilihan antara sequential search dan binary search tergantung pada sifat kumpulan data yang akan dicari dan urutan data tersebut. Jika kumpulan data tidak terurut atau berukuran kecil, sequential search dapat digunakan. Namun, jika kumpulan data telah diurutkan dan berukuran besar, binary search akan lebih efisien. <br/>
 ## Referensi
 [1] Bahit, M, ALGORITMA PEMROGRAMAN TERSTRUKTUR . Cetakan Pertama. Banjarmasin:Poliban Press,2024.<br/>
 [2] Firliana, R, Algoritma & Pemrograman C++. Cetakan Pertama. Prambon Nganjuk:CV.Adjie Media Nusantara, 2018 <br/>
