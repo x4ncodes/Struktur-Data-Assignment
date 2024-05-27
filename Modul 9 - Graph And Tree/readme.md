@@ -21,7 +21,7 @@ Khusus graph, undigraph bisa sebagai digraph (panah di kedua ujung edge berlawan
 ![Linear 1-way Digraph](linear_1way.png)<br/>
 Linear 1-way Digraph<br/>
 ![Linear 2-way Undigraph](linear_2way.png)<br/>
-Linear 2-way Undigraph <br/>
+Linear 2-way Undigraph <br/> <br/>
 Konektivitas pada Undigraph <br/>
 - Adjacency: Dua verteks x dan y yang berlainan disebut terhubung langsung (adjacent) jika ada sisi {x, y} dalam E. <br/>
 - Path : Urutan dari kumpulan node-node, dimana tiap node dengan node berikutnya dihubungkan dengan Edge <br/>
@@ -450,7 +450,49 @@ int main() {
 }
 
 ```
-Kode diatas adalah bentuk implementasi dari program tree
+Kode diatas adalah bentuk implementasi dari program tree tanpa menggunakan sebuah menu switch-case berikut adalah rincian lebih lanjut :
+1) void init() <br/>
+Deklarasi diatas digunakan untuk menginisialisasi root dengan nilai awal 0. <br/>
+2)  bool isEmpty() <br/>
+Fungsi diatas adalah pengecekan apakah kosong atau tidak, fungsi akan bernilai true jika root bernilai 0.<br/>
+3)  Pohon *newPohon(char data) <br/>
+Fungsi diatas digunakan untuk menambahkan sebuah node pohon baru tanpa anak kanan, anak kiri, atau parent, dengan variabel char untuk parameternya, kemudian mengembalikan nilai node. <br/>
+4) void buatNode(char data) <br/>
+Deklarasi diatas digunakan untuk membuat sebuah node menjadi root. Pertama terdapat perkondisian if-else yang digunakan untuk pengecekan apakah root kosong atau tidak, jika if kondisi terpenuhi maka node akan dibuat menjadi root. Jika if kondisi tidak terpenuhi, program akan memunculkan pesan pohon sudah dibuat. <br/>
+5)  Pohon *insertLeft(char data, Pohon *node) <br/>
+Fungsi diatas digunakan untuk membuat anak kiri dengan parameter data dengan tipe data char, dan pointer node. Lalu terdapat perkondisian if-else, jika kondisi if terpenuhi berarti user belum membuat pohon / root. Jika kondisi if tidak terpenuhi, maka akan terjadi perkondisian if-else yang kedua, dimana jika if kondisi terpenuhi maka program akan mengecek apakah node disebelah kiri isi atau kosong, jika kosong maka akan menampilkan pesan ke user bahwa node sudah ada child kiri. Lalu jika if kondisi tidak terpenuhi maka akan memperbarui child kiri dengan data yang baru. <br/>
+6) Pohon *insertRight(char data, Pohon *node) <br/>
+Fungsi ini sistem kerjanya sama dengan fungsi no 5, dimana pada fungsi ini untuk menambahkan child disebelah kanan. <br/>
+7) void update(char data, Pohon *node) <br/>
+Deklarasi diatas digunakan untuk memperbarui data pada tree yang sudah dibuat. Pertama program akan melakukan pengecekan apakah pohon kosong, jika kosong maka program akan menampilkan text yang menyuruh user untuk membuat pohon terlebih dahulu. Jika tree/pohon isi maka terdapat perkondisian yang kedua dimana jika if terpenuhi dengan kondisi bukan node maka program akan menampilkan pesan node yang ingin diganti tidak ada. Jika if kondisi tidak terpenuhi maka program akan mencari data pada temp, kemudian akan memperbarui data pada temp tersebut. <br/>
+8) void retrieve(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menunjuk data node dalam bentuk pointer. Sistem kerja pertama ialah pengecekan apakah tree kosong atau tidak, jika kosong maka tidak dapat meretrieve pohon. Jika isi maka terdapat perkondisian yang kedua dimana if akan mengecek apakah terdapat node atau tidak, jika terdapat node maka akan menampilkan data node, jika !node maka akan menampilkan pesan buat tree terlebih dahulu. <br/>
+9) void find(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk mencari sebuah data ode berdasarkan root yang dimasukan. Jika data ditemukan maka akan menampilkan data node, root, parent, sibling, child kiri, dan child kanan. <br/>
+10) void showChild(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menampilkan anak kiri dan kanan dari sebuah tree. Pertama seperti biasa yang itu pengecekan apakah root kosong atau tidak. Jika kosong maka program akan menyuruh user membuat tree terlebih dahulu. Jika root isi maka akan ada pengecekan kondisi if yang kedua dimana jika tidak ada node program akan menampilkan pesan untuk user node yang ditunjuk tidak ada!. Jika terdapat node maka akan menampilkan node yang akan dicari dan anaknya (anak kiri dan anak kanan). <br/>
+11) void preOrder(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menampilkan data node dalam posisi preOrder, dipastikan bahwa node tidak boleh kosong. <br/>
+12) void showDescendants(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menampilkan descendants dari sebuah root. sepeerti biasa terdapat pengecekan dan root tidak boleh kosong dan root harus terdapat sebuah node. Kemudian akan menampilkan descendant dari sebuah root dengan posisi preOrder. <br/>
+13) void inOrder(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk merubah posisi node asli di sebelah kanan node kiri, kemudian node kanan. Jadi node kiri, node asli, dan node kanan <br/>
+14) void postOrder(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk merubah node asli ke posisi paling kanan, dan susunan nodenya berubah menjadi node kiri, node kanan, dan node asli. <br/>
+15) void deleteTree(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menghapus seluruh pohon biner mulai dari node yang diberikan. Jika node tersebut bukan root, ia akan memutus hubungan node dari parent-nya terlebih dahulu sebelum menghapus node dan seluruh subtreenya secara rekursif. Jika node tersebut adalah root, ia akan menghapus root dan mengatur root ke NULL. <br/>
+16) void deleteSub(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menghapus sub root, seperti biasa terdapat pengecekan apakah root kosong atau tidak, jika if kondisi tidak terpenuhi maka subtree kanan dan kiri akan dihapus menggunakan deleteTree dengan cara memutuskan hubungan node dari parentnya kemudian di set ke 0/NULL. <br/>
+17) void clear() <br/>
+Deklarasi diatas digunakan untuk menghapus keseluruhan root/tree. <br/>
+18) int size(Pohon *node) <br/>
+Fungsi diatas digunakan untuk menghitung ukuran (jumlah node) dari sebuah pohon biner yang diwakili oleh node yang diberikan.  <br/>
+19) int height(Pohon *node) <br/>
+Fungsi diatas digunakan untuk menghitung tinggi level dari sebuah root/tree. Jika root/tree tersebut tidak terdapat sebuah node maka program akan berhenti. Jika terdapat sebuah node maka akan menghitung dari tinggi kiri dan tinggi kanan sebuah node. <br/>
+20) void characteristic() <br/>
+Deklarasi diatas digunakan untuk menampilkan karakteristik dari sebuah root/tree. Menampilkan size dan tinggi root, size dan tinggi tree. <br/> <br/>
+
+Pada int main, terdapat fungsi init dengan nilai kosong. Kemudian deklarasi buatnode dengan char A. Kemudian menambahkan beberapa char sebagai anak kiri dan anak kanan. Lalu memperbarui nilai C menjadi Z, dan C menjadi Z kembali. Lalu menunjuk dan mencari data C. Setelah itu menampilkan data preOrder, inOrder, dan postOrder. Lalu Menampilkan karakteristik root. Kemudian menghapus subtree node E dan menampilkan PreOrder kembali setelah menghapus subtree node E. Terakhir menampilkan sebuah karakteristik dari tree setelah dihapus node E.
 
 ## Unguided 
 
@@ -523,7 +565,7 @@ int main() {
 #### Penjelasan Program Unguided 1:
 Kode program c++ diatas adalah bentuk representasi program graph yang meminta bantuan menghitung jarak antar kota menggunakan input manual dari user. Pertama terdapat deklarasi dari variabel MAX_CITIES yang berfungsi untuk menampung maksimal banyak data sebanyak 10. Kemudian ada struct graph yang berfungsi untuk menyimpan string data untuk nama kota, array 2 dimensi, dan menyimpan jumlah kota dalam graph. Lalu ada deklarasi printMatrix yang berfungsi untuk menampilkan data dari graph. Penjelasan lebih lanjut : <br/>
 - void printMatrix(const Graph& graph) <br/>
-Deklarasi diatas menggunakan 2 perulangan for untuk menampilkan data. Perulangan 'for' yang pertama memiliki alur memulai loop for yang akan mengulang sebanyak graph.numCities. Variabel i akan berjalan dari 0 hingga graph.numCities - 1. Loop ini digunakan untuk iterasi melalui semua kota yang ada dalam objek graph. Kemudian menampilkan nama atau data dari setiap kota. graph.axandio_2311102179[i] mengakses elemen ke-i dari array axandio_2311102179 yang terdapat dalam objek graph. setw(10) digunakan untuk mengatur lebar keluaran menjadi 10 karakter, memastikan bahwa setiap nama kota ditampilkan dalam kolom yang rata kanan dengan lebar 10 karakter. Perulangan 'for' yang kedua digunakan untuk menampilkan daftar nama kota yang terdapat dalam objek graph beserta nilai elemen matriks ketetanggaan yang terkait dengan setiap kota. Matriks ketetanggaan (adjacencyMatrix) biasanya digunakan untuk merepresentasikan graf, di mana setiap elemen matriks menunjukkan ada atau tidaknya hubungan (atau bobot hubungan) antara dua kota.<br/>
+Deklarasi diatas menggunakan 2 perulangan for untuk menampilkan data. Perulangan 'for' yang pertama memiliki alur memulai loop for yang akan mengulang sebanyak graph.numCities. Variabel i akan berjalan dari 0 hingga graph.numCities - 1. Loop ini digunakan untuk iterasi melalui semua kota yang ada dalam objek graph. Kemudian menampilkan nama atau data dari setiap kota. graph.axandio_2311102179[i] mengakses elemen ke-i dari array axandio_2311102179 yang terdapat dalam objek graph. setw(10) digunakan untuk mengatur lebar keluaran menjadi 10 karakter, memastikan bahwa setiap nama kota ditampilkan dalam kolom yang rata kanan dengan lebar 10 karakter. Perulangan 'for' yang kedua digunakan untuk menampilkan daftar nama kota yang terdapat dalam objek graph beserta nilai elemen matriks ketetanggaan yang terkait dengan setiap kota. Matriks ketetanggaan (adjacencyMatrix) biasanya digunakan untuk merepresentasikan graf, di mana setiap elemen matriks menunjukkan ada atau tidaknya hubungan (atau bobot hubungan) antara dua kota.<br/><br/>
 Pada int main, pertama mendeklarasikan struct Graph dengan nama graph. Kemudian meminta user untuk memasukan jumlah simpul yang nantinya akan disimpan dalam struct Graph dengan nama numCities. Lalu ada cin.ignore yang digunakan untuk mengabaikan karakter pada newline yang tersisa. Lalu terdapat perulangan for yang digunakan untuk menampilkan simpul yang sesuai dengan jumlah simpul pada graph,numCities, selain itu juga meminta user untuk menginputkan nama kota. Lalu pada perulangan for yang kedua digunakan untuk user memasukan bobot antar simpul. Terakhir program akan menampilkan data graph menggunakan deklarasi printMatrix dengan parameter graph. <br/> <br/>
 
 ### 2. Modifikasi guided tree diatas dengan program menu menggunakan input data tree dari user dan berikan fungsi tambahan untuk menampilkan node child dan descendant dari node yang diinput kan! <br/>
@@ -1037,12 +1079,49 @@ Pada int main, pertama mendeklarasikan struct Graph dengan nama graph. Kemudian 
 ![Output Unguided 2](unguided2_6.png) <br/>
 ![Output Unguided 2](unguided2_7.png) <br/>
 #### Penjelasan Program Unguided 2:
-Kode program diatas merupakan implementasi searching menggunakan sequential search. Pertama adalah deklarasi dari struct VocalData untuk menyimpan pointer indices dan count. Lalu terdapat 2 buah fungsi dan prosedur untuk program dengan rincian penjelasan sebagai berikut : <br/>
-1) bool isVocal(char ch) <br/>
-Fungsi diatas digunakan untuk pengecekan sebuah karakter apakah huruf vokal atau tidak. Kemudian dalam fungsi tersebut terdapat function tolower untuk merubah huruf besar menjadi huruf kecil. dan mengembalikan nilai ch dengan rincian a,e,i,o, dan u. <br/>
-2) void sequentialSearchVocals(const string& kalimat, set<char>& vocalsFound, VocalData& vocalData) <br/>
-Deklarasi diatas digunakan untuk mencari huruf vokal menggunakan sequential search dengan ketentuan parameter kalimat, vocalsFound, dan vocalData. Kemudian ada inisialisasi dari length yang berarti menghitung panjang  jumlah karakter dari string yang disimpan dalam variabel kalimat, kemudian ada inisialisasi jumlah huruf vokal dan mengalokasikan memori untuk array dinamis. Lalu ada perulangan for yang digunakan untuk mengecek satu per satu karakter dalam string kalimat. <br/> <br/>
-Pada fungsi main terdapat inisialisasi variabel kalimat, dan program meminta user untuk menginputkan kalimat lebih dari 1 kata. Setelah itu program akan menampilkan ulang kalimat yang dimasukan oleh user kemudian menyimpan huruf vokal unik pada set<char> vocalsFound dan menyimpan data dari huruf vokal pada VocalData vocalData. Setelah menyimpan huruf vokal, program akan mencari huruf vokal menggunakan fungsi sequentialSearchVocals. Kemudian program akan mencetak jumlah huruf vokal yang ditemukan dan huruf vokal apa aja yang ditemukan menggunakan perulangan for, lalu program akan mencetak indeks dari huruf vokal. Terakhir program membersihkan array dinamis untuk menyimpan huruf vokal. <br/>
+Kode program diatas merupakan implementasi modifikasi dari guided tree diatas menggunakan input data dari user dan diberikan menu. Untuk program dengan rincian penjelasan sebagai berikut : <br/>
+1) void init() <br/>
+Deklarasi diatas digunakan untuk menginisialisasi root dengan nilai awal 0. <br/>
+2)  bool isEmpty() <br/>
+Fungsi diatas adalah pengecekan apakah kosong atau tidak, fungsi akan bernilai true jika root bernilai 0.<br/>
+3)  Pohon *newPohon(char data) <br/>
+Fungsi diatas digunakan untuk menambahkan sebuah node pohon baru tanpa anak kanan, anak kiri, atau parent, dengan variabel char untuk parameternya, kemudian mengembalikan nilai node. <br/>
+4) void buatNode(char data) <br/>
+Deklarasi diatas digunakan untuk membuat sebuah node menjadi root. Pertama terdapat perkondisian if-else yang digunakan untuk pengecekan apakah root kosong atau tidak, jika if kondisi terpenuhi maka node akan dibuat menjadi root. Jika if kondisi tidak terpenuhi, program akan memunculkan pesan pohon sudah dibuat. <br/>
+5)  Pohon *insertLeft(char data, Pohon *node) <br/>
+Fungsi diatas digunakan untuk membuat anak kiri dengan parameter data dengan tipe data char, dan pointer node. Lalu terdapat perkondisian if-else, jika kondisi if terpenuhi berarti user belum membuat pohon / root. Jika kondisi if tidak terpenuhi, maka akan terjadi perkondisian if-else yang kedua, dimana jika if kondisi terpenuhi maka program akan mengecek apakah node disebelah kiri isi atau kosong, jika kosong maka akan menampilkan pesan ke user bahwa node sudah ada child kiri. Lalu jika if kondisi tidak terpenuhi maka akan memperbarui child kiri dengan data yang baru. <br/>
+6) Pohon *insertRight(char data, Pohon *node) <br/>
+Fungsi ini sistem kerjanya sama dengan fungsi no 5, dimana pada fungsi ini untuk menambahkan child disebelah kanan. <br/>
+7) void update(char data, Pohon *node) <br/>
+Deklarasi diatas digunakan untuk memperbarui data pada tree yang sudah dibuat. Pertama program akan melakukan pengecekan apakah pohon kosong, jika kosong maka program akan menampilkan text yang menyuruh user untuk membuat pohon terlebih dahulu. Jika tree/pohon isi maka terdapat perkondisian yang kedua dimana jika if terpenuhi dengan kondisi bukan node maka program akan menampilkan pesan node yang ingin diganti tidak ada. Jika if kondisi tidak terpenuhi maka program akan mencari data pada temp, kemudian akan memperbarui data pada temp tersebut. <br/>
+8) void retrieve(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menunjuk data node dalam bentuk pointer. Sistem kerja pertama ialah pengecekan apakah tree kosong atau tidak, jika kosong maka tidak dapat meretrieve pohon. Jika isi maka terdapat perkondisian yang kedua dimana if akan mengecek apakah terdapat node atau tidak, jika terdapat node maka akan menampilkan data node, jika !node maka akan menampilkan pesan buat tree terlebih dahulu. <br/>
+9) void find(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk mencari sebuah data ode berdasarkan root yang dimasukan. Jika data ditemukan maka akan menampilkan data node, root, parent, sibling, child kiri, dan child kanan. <br/>
+10) void showChild(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menampilkan anak kiri dan kanan dari sebuah tree. Pertama seperti biasa yang itu pengecekan apakah root kosong atau tidak. Jika kosong maka program akan menyuruh user membuat tree terlebih dahulu. Jika root isi maka akan ada pengecekan kondisi if yang kedua dimana jika tidak ada node program akan menampilkan pesan untuk user node yang ditunjuk tidak ada!. Jika terdapat node maka akan menampilkan node yang akan dicari dan anaknya (anak kiri dan anak kanan). <br/>
+11) void preOrder(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menampilkan data node dalam posisi preOrder, dipastikan bahwa node tidak boleh kosong. <br/>
+12) void showDescendants(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menampilkan descendants dari sebuah root. sepeerti biasa terdapat pengecekan dan root tidak boleh kosong dan root harus terdapat sebuah node. Kemudian akan menampilkan descendant dari sebuah root dengan posisi preOrder. <br/>
+13) void inOrder(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk merubah posisi node asli di sebelah kanan node kiri, kemudian node kanan. Jadi node kiri, node asli, dan node kanan <br/>
+14) void postOrder(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk merubah node asli ke posisi paling kanan, dan susunan nodenya berubah menjadi node kiri, node kanan, dan node asli. <br/>
+15) void deleteTree(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menghapus seluruh pohon biner mulai dari node yang diberikan. Jika node tersebut bukan root, ia akan memutus hubungan node dari parent-nya terlebih dahulu sebelum menghapus node dan seluruh subtreenya secara rekursif. Jika node tersebut adalah root, ia akan menghapus root dan mengatur root ke NULL. <br/>
+16) void deleteSub(Pohon *node) <br/>
+Deklarasi diatas digunakan untuk menghapus sub root, seperti biasa terdapat pengecekan apakah root kosong atau tidak, jika if kondisi tidak terpenuhi maka subtree kanan dan kiri akan dihapus menggunakan deleteTree dengan cara memutuskan hubungan node dari parentnya kemudian di set ke 0/NULL. <br/>
+17) void clear() <br/>
+Deklarasi diatas digunakan untuk menghapus keseluruhan root/tree. <br/>
+18) int size(Pohon *node) <br/>
+Fungsi diatas digunakan untuk menghitung ukuran (jumlah node) dari sebuah pohon biner yang diwakili oleh node yang diberikan.  <br/>
+19) int height(Pohon *node) <br/>
+Fungsi diatas digunakan untuk menghitung tinggi level dari sebuah root/tree. Jika root/tree tersebut tidak terdapat sebuah node maka program akan berhenti. Jika terdapat sebuah node maka akan menghitung dari tinggi kiri dan tinggi kanan sebuah node. <br/>
+20) void characteristic() <br/>
+Deklarasi diatas digunakan untuk menampilkan karakteristik dari sebuah root/tree. Menampilkan size dan tinggi root, size dan tinggi tree. <br/> <br/>
+
+Pada fungsi main terdapat deklarasi variabel choice untuk memilih menu pada switch case, kemudian terdapat beberapa variabel bertipe data char seperti axandio_2311102179 yang berguna untuk menyimpan data inputan, parentData untuk menyimpan data sebuah parent, dan direction. Kemudian terdapat pula pointer untuk mengambil alamat dari parentNOde dan juga tempNode. <br/>
 
 ## Kesimpulan
 Berdasarkan praktikum diatas yang telah dilakukan bahwa : <br/>
